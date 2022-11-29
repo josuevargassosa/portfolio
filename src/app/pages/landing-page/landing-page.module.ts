@@ -2,10 +2,12 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { LandingPageRoutingModule } from './landing-page-routing.module';
-
-import {ToolbarModule} from 'primeng/toolbar';
-import {ButtonModule} from 'primeng/button';
 import { LandingPageComponent } from './landing-page.component';
+
+
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatCardModule} from '@angular/material/card';
+import {MatGridListModule} from '@angular/material/grid-list';
 
 
 @NgModule({
@@ -16,9 +18,10 @@ import { LandingPageComponent } from './landing-page.component';
     CommonModule,
     LandingPageRoutingModule,
 
-    // PrimeNG
-    ToolbarModule,
-    ButtonModule
+    // Angular Material
+    MatToolbarModule,
+    MatCardModule,
+    MatGridListModule
   ]
 })
 export class LandingPageModule { }
