@@ -83,6 +83,21 @@ body {
     font-size: 6vh;
     font-weight: bold;
   }
+
+  h3 {
+    width: 50%;
+    //font-size: 5vh;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .about-section {
+    padding: 40px;
+
+    h1 {
+      height: max-content;
+    }
+  }
 }
 
 @media screen and (max-width: 500px) {
