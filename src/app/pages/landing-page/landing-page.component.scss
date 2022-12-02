@@ -13,19 +13,54 @@ body {
   //padding: 20px 40px;
 }
 
+
 .top {
-    padding: 20px 200px;
-    background-color: black;
+  padding: 20px 200px;
+  background-color: black;
+}
+
+.navbar-toggler {
+  display: none;
+  color: white;
 }
 
 @media screen and (max-width: 1200px) {
-    .top {
-        overflow: hidden;
-        background-color: #000000;
-        padding: 20px 40px;
-      }
+  .top {
+    overflow: hidden;
+    background-color: #000000;
+    padding: 20px 40px;
   }
-  
+}
+
+@media (max-width: 992px) {
+
+  .navbar-collapse.collapsing {
+      left: -75%;
+      transition: height 0s ease;
+  }
+
+  .navbar-collapse.show {
+      left: 0;
+      transition: left 300ms ease-in-out;
+  }
+
+  .navbar-toggler.collapsed ~ .navbar-collapse {
+      transition: left 500ms ease-in-out;
+  }
+
+  .navbar-toggler {
+    display: flex;
+  }
+
+  .header-2 {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .ul-style {
+    padding: 0;
+  }
+}
 
 .header a {
   float: left;
@@ -43,6 +78,11 @@ body {
   font-size: 25px;
   font-weight: bold;
   padding: 12px 0px;
+}
+
+.header a.logo:hover {
+  background-color: rgba(45, 255, 80, 0);;
+  color: rgb(255, 255, 255);
 }
 
 .header a:hover {
@@ -84,7 +124,8 @@ body {
     font-weight: bold;
   }
 
-  h3 {
+  h2 {
+    padding-top: 3%;
     width: 50%;
     //font-size: 5vh;
   }
@@ -96,6 +137,10 @@ body {
 
     h1 {
       height: max-content;
+    }
+
+    h2 {
+      width: 100%;
     }
   }
 }
@@ -145,7 +190,7 @@ body {
   background-color: rgb(235, 235, 235);
   color: white;
   padding: 1rem;
-  height: 7rem;
+  height: 8rem;
   color: #000000;
 
   div {
@@ -181,9 +226,9 @@ body {
 .logos {
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
-  height: 50px;
-  width: 50px;
+  background-size: contain;
+  height: 60px;
+  width: 60px;
 }
 
 .skill {

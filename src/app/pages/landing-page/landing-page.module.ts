@@ -8,6 +8,8 @@ import { LandingPageComponent } from './landing-page.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatCardModule} from '@angular/material/card';
 import {MatGridListModule} from '@angular/material/grid-list';
+import {MatButtonModule} from '@angular/material/button';
+import {MatIconModule} from '@angular/material/icon';
 
 
 @NgModule({
@@ -21,7 +23,9 @@ import {MatGridListModule} from '@angular/material/grid-list';
     // Angular Material
     MatToolbarModule,
     MatCardModule,
-    MatGridListModule
+    MatGridListModule,
+    MatButtonModule,
+    MatIconModule
   ]
 })
 export class LandingPageModule { }

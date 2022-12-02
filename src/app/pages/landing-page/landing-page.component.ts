@@ -28,7 +28,35 @@ export class LandingPageComponent implements OnInit {
       {
         logo: '../../../assets/img/ionicLogo.png',
         name: 'Ionic',
-      }
+      },
+      {
+        logo: '../../../assets/img/htmlLogo.png',
+        name: 'Html',
+      },
+      {
+        logo: '../../../assets/img/cssLogo.png',
+        name: 'Css',
+      },
+      {
+        logo: '../../../assets/img/gitLogo.png',
+        name: 'Git',
+      },
+      {
+        logo: '../../../assets/img/flutterLogo.png',
+        name: 'Flutter',
+      },
+      {
+        logo: '../../../assets/img/sqlServerLogo.png',
+        name: 'Sql server',
+      },
+      {
+        logo: '../../../assets/img/nodejsLogo.png',
+        name: 'NodeJS',
+      },
+      {
+        logo: '../../../assets/img/nestjsLogo.png',
+        name: 'NestJS',
+      },
     ]
   }
 

@@ -1,21 +1,35 @@
-<div class="top">
-  <div class="header">
-    <a href="#default" class="logo">Josue Vargas</a>
-    <div class="header-right">
-      <a class="active" href="#home">Home</a>
-      <a href="#knowledge">Knowledge</a>
-      <a href="#about">Contact</a>
+<div class="top" id="home">
+  <nav class="header">
+    <div class="header-2">
+        <a class="logo">Josue Vargas</a>
+        <button class="navbar-toggler" data-target="#navbarCollapse" data-toggle="collapse" mat-icon-button color="accent" aria-label="Example icon button with a menu icon"
+        aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle">
+            <mat-icon>menu</mat-icon>
+        </button>
     </div>
-  </div>
+    <div class="header-right collapse navbar-collapse bg-dark" id="navbarCollapse">
+		<ul style="list-style: none;" class="ul-style navbar-nav mr-auto">
+			<li class="nav-item">
+				<a class="nav-link" href="#home">Home</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="#knowledge">Knowledge</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="#about">About</a>
+			</li>
+		</ul>
+	  </div>
+  </nav>
 
   <div class="about-section">
     <h1>Full Stack Developer</h1>
-    <h3>I characterize myself as a professional
-      with leadership and proactive at work, responsible and punctual in project delivery.</h3>
+    <h2>I characterize myself as a professional
+      with leadership and proactive at work, responsible and punctual in project delivery.</h2>
   </div>
 </div>
 
-<div class="knowledge">
+<div class="knowledge" id="knowledge">
   <div class="section-title aos-init aos-animate" data-aos="fade-up">
     <h2>Skills &amp; Habilities</h2>
     <p>Knowledge</p>
@@ -25,7 +39,7 @@
       <div style="height: 100%; float: left;">
         <div class="logos" style="background-image: url({{item.logo}});"></div>
       </div>
-      <div style="height: 100%; padding-left: 10px;" class="skill">
+      <div style="height: 100%; padding-left: 10px; text-transform: uppercase; letter-spacing: 2px;" class="skill">
         {{item.name}}
       </div>
     </div>
