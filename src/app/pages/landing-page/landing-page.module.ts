@@ -10,7 +10,8 @@ import {MatCardModule} from '@angular/material/card';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
-
+import {InputSwitchModule} from 'primeng/inputswitch';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,9 @@ import {MatIconModule} from '@angular/material/icon';
     MatCardModule,
     MatGridListModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    InputSwitchModule,
+    FormsModule,
   ]
 })
 export class LandingPageModule { }

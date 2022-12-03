@@ -2,15 +2,18 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   templateUrl: './landing-page.component.html',
-  styleUrls: ['./landing-page.component.scss']
+  styleUrls: ['./landing-page.component.scss'],
 })
 export class LandingPageComponent implements OnInit {
+  knowledges: any = [];
+  themeSelection: boolean = true;
 
-  knowledges:any = []
-
-  constructor() {}
+  constructor() {
+   
+  }
 
   ngOnInit() {
+    this.themeDark()
     this.knowledges = [
       {
         logo: '../../../assets/img/angularLogo.png',
@@ -57,7 +60,22 @@ export class LandingPageComponent implements OnInit {
         logo: '../../../assets/img/nestjsLogo.png',
         name: 'NestJS',
       },
-    ]
+    ];
   }
 
+  changeTheme(state: boolean) {
+    console.log(state);
+    state ? this.themeDark() :  this.themeLight() ;
+  }
+  themeDark() {
+    console.log('themeDark');
+    document.getElementById('page')!.classList.add('dark-mode');
+    document.getElementById('page')!.classList.remove('light-mode');
+  }
+
+  themeLight() {
+    console.log('themeLight');
+    document.getElementById('page')!.classList.remove('dark-mode');
+    document.getElementById('page')!.classList.add('light-mode');
+  }
 }
