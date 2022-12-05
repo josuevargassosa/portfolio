@@ -3,24 +3,13 @@
     <nav class="header">
       <div class="header-2">
         <a id="page" class="logo">Josue Vargas</a>
-        <button
-          class="navbar-toggler"
-          data-target="#navbarCollapse"
-          data-toggle="collapse"
-          mat-icon-button
-          color="accent"
-          aria-label="Example icon button with a menu icon"
-          aria-controls="navbarCollapse"
-          aria-expanded="false"
-          aria-label="Toggle"
-        >
+        <button class="navbar-toggler" data-target="#navbarCollapse" data-toggle="collapse" mat-icon-button
+          color="accent" aria-label="Example icon button with a menu icon" aria-controls="navbarCollapse"
+          aria-expanded="false" aria-label="Toggle">
           <mat-icon>menu</mat-icon>
         </button>
       </div>
-      <div
-        class="header-right collapse navbar-collapse bg-dark"
-        id="navbarCollapse"
-      >
+      <div class="header-right collapse navbar-collapse bg-dark" id="navbarCollapse">
         <ul style="list-style: none" class="ul-style navbar-nav mr-auto">
           <li class="nav-item">
             <a class="nav-link" href="#home">Home</a>
@@ -33,10 +22,7 @@
           </li>
         </ul>
         <a pRipple class="flex">
-          <p-inputSwitch
-            [(ngModel)]="themeSelection"
-            (onChange)="changeTheme($event.checked)"
-          ></p-inputSwitch>
+          <p-inputSwitch [(ngModel)]="themeSelection" (onChange)="changeTheme($event.checked)"></p-inputSwitch>
         </a>
         <!-- <div class="language-wrapper">
           <ul>
@@ -59,39 +45,15 @@
 
   <!--Waves Container-->
   <div class="waves-container">
-    <svg
-      class="waves"
-      xmlns="http://www.w3.org/2000/svg"
-      xmlns:xlink="http://www.w3.org/1999/xlink"
-      viewBox="0 24 150 28"
-      preserveAspectRatio="none"
-      shape-rendering="auto"
-    >
+    <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+      viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
       <defs>
-        <path
-          id="gentle-wave"
-          d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"
-        />
+        <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
       </defs>
       <g class="parallax">
-        <use
-          xlink:href="#gentle-wave"
-          x="48"
-          y="0"
-          fill="rgba(255,255,255,0.7"
-        />
-        <use
-          xlink:href="#gentle-wave"
-          x="48"
-          y="3"
-          fill="rgba(255,255,255,0.5)"
-        />
-        <use
-          xlink:href="#gentle-wave"
-          x="48"
-          y="5"
-          fill="rgba(255,255,255,0.3)"
-        />
+        <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7" />
+        <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
+        <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
         <use xlink:href="#gentle-wave" x="48" y="7" fill="#fff" />
       </g>
     </svg>
@@ -107,20 +69,14 @@
   <div class="grid-container">
     <div class="grid-item" *ngFor="let item of knowledges">
       <div style="height: 100%; float: left">
-        <div
-          class="logos"
-          style="background-image: url({{ item.logo }})"
-        ></div>
+        <div class="logos" [ngStyle]="{'background-image': 'url('+item.logo+')'}"></div>
       </div>
-      <div
-        style="
+      <div style="
           height: 100%;
           padding-left: 10px;
           text-transform: uppercase;
           letter-spacing: 2px;
-        "
-        class="skill"
-      >
+        " class="skill">
         {{ item.name }}
       </div>
     </div>

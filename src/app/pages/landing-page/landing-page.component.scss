@@ -14,6 +14,11 @@ body {
   a {
     color: rgb(0, 0, 0) !important;
   }
+
+  .navbar-toggler {
+    color: rgb(0, 0, 0);
+  }
+
 }
 
 .dark-mode{ 
@@ -22,7 +27,17 @@ body {
   a {
     color: #ffffff !important;
   }
+
+  .navbar-toggler {
+    color: white;
+  }
+
 }
+
+.navbar-toggler {
+  display: none;
+}
+
 
 .language-wrapper {
   float:right;
@@ -64,10 +79,6 @@ body {
   //background-color: black;
 }
 
-.navbar-toggler {
-  display: none;
-  color: white;
-}
 
 @media screen and (max-width: 1200px) {
   .top {
