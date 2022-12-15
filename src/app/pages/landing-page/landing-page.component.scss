@@ -153,11 +153,49 @@ body {
   float: right;
 }
 
+.theme {
+  cursor: pointer;
+}
+
+.theme:hover .icon-theme,
+.theme .icon-filltheme {
+  display: none;
+}
+.theme:hover .icon-filltheme {
+  display: inline;
+}
+
+.iconsMovil {
+  display: none;
+}
+
 @media screen and (max-width: 576px) {
+  .theme {
+    display: none;
+  }
+
   .header a {
     float: none;
     display: block;
     text-align: left;
+  }
+
+  .iconsMovil {
+    display: flex;
+    align-items: center;
+  }
+
+  .themeMovil:active .icon-themeMovil,
+  .themeMovil .icon-fillthemeMovil {
+    display: none;
+  }
+  .themeMovil:active .icon-fillthemeMovil {
+    display: inline;
+  }
+
+  .icon-themeMovil,
+  .icon-fillthemeMovil {
+    font-size: x-large;
   }
 
   .header-right {

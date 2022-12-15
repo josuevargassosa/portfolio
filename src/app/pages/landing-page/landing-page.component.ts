@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { TranslateService } from '@ngx-translate/core';
+
 @Component({
   templateUrl: './landing-page.component.html',
   styleUrls: ['./landing-page.component.scss'],
@@ -8,12 +10,24 @@ export class LandingPageComponent implements OnInit {
   knowledges: any = [];
   themeSelection: boolean = true;
 
-  constructor() {
-   
+  user!: any;
+  menus!: any;
+
+  constructor(private translate: TranslateService) {
+    translate.addLangs(['es']);
+    translate.setDefaultLang('es');
+    translate.use('es');
   }
 
   ngOnInit() {
-    this.themeDark()
+    this.menus = this.translate.instant('menu');
+
+    // asynchronous - gets translations then completes.
+    this.translate.get(['menu']).subscribe((translations) => {
+      this.menus = translations.menu;
+    });
+
+    this.themeDark();
     this.knowledges = [
       {
         logo: '../../../assets/img/angularLogo.png',
@@ -64,18 +78,24 @@ export class LandingPageComponent implements OnInit {
   }
 
   changeTheme(state: boolean) {
-    console.log(state);
-    state ? this.themeDark() :  this.themeLight() ;
+    this.themeSelection = state;
+    state ? this.themeDark() : this.themeLight();
   }
   themeDark() {
-    console.log('themeDark');
     document.getElementById('page')!.classList.add('dark-mode');
     document.getElementById('page')!.classList.remove('light-mode');
   }
 
   themeLight() {
-    console.log('themeLight');
     document.getElementById('page')!.classList.remove('dark-mode');
     document.getElementById('page')!.classList.add('light-mode');
+  }
+
+  changeLang(language: string) {
+    if (language === 'en') {
+      this.translate.use('en');
+    } else {
+      this.translate.use('es');
+    }
   }
 }

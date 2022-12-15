@@ -3,19 +3,42 @@
     <nav class="header">
       <div class="header-2">
         <a id="page" class="logo">Josue Vargas</a>
-        <button
-          class="navbar-toggler"
-          data-target="#navbarCollapse"
-          data-toggle="collapse"
-          mat-icon-button
-          color="accent"
-          aria-label="Example icon button with a menu icon"
-          aria-controls="navbarCollapse"
-          aria-expanded="false"
-          aria-label="Toggle"
-        >
-          <mat-icon>menu</mat-icon>
-        </button>
+        <div class="iconsMovil">
+          <div *ngIf="themeSelection" class="themeMovil">
+            <i
+              (click)="changeTheme(false)"
+              class="lock bi bi-brightness-high icon-themeMovil"
+            ></i>
+            <i
+              (click)="changeTheme(false)"
+              class="lock bi bi-brightness-high-fill icon-fillthemeMovil"
+            ></i>
+          </div>
+
+          <div *ngIf="!themeSelection" class="themeMovil">
+            <i
+              (click)="changeTheme(true)"
+              class="bi bi-moon icon-themeMovil"
+            ></i>
+            <i
+              (click)="changeTheme(true)"
+              class="bi bi-moon-fill icon-fillthemeMovil"
+            ></i>
+          </div>
+          <button
+            class="navbar-toggler"
+            data-target="#navbarCollapse"
+            data-toggle="collapse"
+            mat-icon-button
+            color="accent"
+            aria-label="Example icon button with a menu icon"
+            aria-controls="navbarCollapse"
+            aria-expanded="false"
+            aria-label="Toggle"
+          >
+            <mat-icon>menu</mat-icon>
+          </button>
+        </div>
       </div>
       <div
         class="header-right collapse navbar-collapse bg-dark"
@@ -23,29 +46,58 @@
       >
         <ul style="list-style: none" class="ul-style navbar-nav mr-auto">
           <li class="nav-item">
-            <a class="nav-link" href="#home">About</a>
+            <a class="nav-link" href="#home">{{
+              "menu.menu1" | translate : user
+            }}</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#knowledge">Knowledge</a>
+            <a class="nav-link" href="#knowledge">{{
+              "menu.menu2" | translate : user
+            }}</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#about">Proyects</a>
+            <a class="nav-link" href="#about">{{
+              "menu.menu3" | translate : user
+            }}</a>
           </li>
         </ul>
         <a pRipple class="flex">
-          <p-inputSwitch
-            [(ngModel)]="themeSelection"
-            (onChange)="changeTheme($event.checked)"
-          ></p-inputSwitch>
+          <div *ngIf="themeSelection" class="theme">
+            <i
+              (click)="changeTheme(false)"
+              class="lock bi bi-brightness-high icon-theme"
+            ></i>
+            <i
+              (click)="changeTheme(false)"
+              class="lock bi bi-brightness-high-fill icon-filltheme"
+            ></i>
+          </div>
+
+          <div *ngIf="!themeSelection" class="theme">
+            <i (click)="changeTheme(true)" class="bi bi-moon icon-theme"></i>
+            <i
+              (click)="changeTheme(true)"
+              class="bi bi-moon-fill icon-filltheme"
+            ></i>
+          </div>
         </a>
+        <div class="language-wrapper">
+          <ul style="cursor: pointer">
+            <li style="border-right-width: 2px; border-right-style: solid">
+              <a (click)="changeLang('en')">EN</a>
+            </li>
+            <li><a (click)="changeLang('es')">ES</a></li>
+          </ul>
+        </div>
       </div>
     </nav>
 
     <div class="about-section">
-      <h1>Full Stack Developer</h1>
+      <h1>
+        {{ "title" | translate : user }}
+      </h1>
       <h2>
-        I characterize myself as a professional with leadership and proactive at
-        work, responsible and punctual in project delivery.
+        {{ "resumen" | translate : user }}
       </h2>
     </div>
   </div>
@@ -92,8 +144,8 @@
 
 <div class="knowledge" id="knowledge">
   <div class="section-title aos-init aos-animate" data-aos="fade-up">
-    <h2>Skills &amp; Habilities</h2>
-    <p>Knowledge</p>
+    <h2>{{ "Skills" | translate : user }}</h2>
+    <p>{{ "Knowledge" | translate : user }}</p>
   </div>
   <div class="grid-container">
     <div class="grid-item" *ngFor="let item of knowledges">
@@ -118,14 +170,6 @@
   </div>
 </div>
 
-<!-- <div class="language-wrapper">
-<ul>
-  <li style="    border-right-width: 2px;
-  border-right-style: solid;"><a href="">EN</a></li>
-  <li><a href="">ES</a></li>
-</ul>()
-</div> -->
-()
 <nav class="social-media">
   <ul>
     <li class="social-media-li">

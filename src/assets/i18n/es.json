@@ -1,0 +1,11 @@
+{
+  "menu": {
+    "menu1": "Resumen",
+    "menu2": "Conocimientos",
+    "menu3": "Proyectos"
+  },
+  "title": "Desarrollador Full Stack",
+  "resumen": "Me caracterizo por ser un profesional con liderazgo y proactivo en el trabajo, responsable y puntual en la entrega de proyectos.",
+  "Skills": "Habilidades & Capacidades",
+  "Knowledge": "CONOCIMIENTOS"
+}
