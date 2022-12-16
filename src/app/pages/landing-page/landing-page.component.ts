@@ -4,7 +4,10 @@ import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   templateUrl: './landing-page.component.html',
-  styleUrls: ['./landing-page.component.scss'],
+  styleUrls: [
+    './landing-page.component.scss',
+    './landing-movil-page.component.scss',
+  ],
 })
 export class LandingPageComponent implements OnInit {
   knowledges: any = [];

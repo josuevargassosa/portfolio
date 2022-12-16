@@ -61,7 +61,7 @@
             }}</a>
           </li>
         </ul>
-        <a pRipple class="flex">
+        <a pRipple class="desktopTheme">
           <div *ngIf="themeSelection" class="theme">
             <i
               (click)="changeTheme(false)"
@@ -83,7 +83,7 @@
         </a>
         <div class="language-wrapper">
           <ul style="cursor: pointer">
-            <li style="border-right-width: 2px; border-right-style: solid">
+            <li style="border-right-width: 1px; border-right-style: solid">
               <a (click)="changeLang('en')">EN</a>
             </li>
             <li><a (click)="changeLang('es')">ES</a></li>
@@ -148,7 +148,7 @@
     <p>{{ "Knowledge" | translate : user }}</p>
   </div>
   <div class="grid-container">
-    <div class="grid-item" *ngFor="let item of knowledges">
+    <div class="card grid-item" *ngFor="let item of knowledges">
       <div style="height: 100%; float: left">
         <div
           class="logos"

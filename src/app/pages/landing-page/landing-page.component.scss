@@ -84,13 +84,17 @@ body {
 
 @media (max-width: 992px) {
   .navbar-collapse.collapsing {
-    left: -75%;
-    transition: height 0s ease;
+    // left: -65%;
+    // transition: left 700ms ease-in-out;
+    left: 100%;
+    transform: translate(-100%, 0);
   }
 
   .navbar-collapse.show {
-    left: 0;
-    transition: left 300ms ease-in-out;
+    //left: 0;
+    // transition: left 700ms ease-in-out;
+    left: 100%;
+    transform: translate(-100%, 0);
   }
 
   .navbar-toggler.collapsed ~ .navbar-collapse {
@@ -169,38 +173,8 @@ body {
   display: none;
 }
 
-@media screen and (max-width: 576px) {
-  .theme {
-    display: none;
-  }
-
-  .header a {
-    float: none;
-    display: block;
-    text-align: left;
-  }
-
-  .iconsMovil {
-    display: flex;
-    align-items: center;
-  }
-
-  .themeMovil:active .icon-themeMovil,
-  .themeMovil .icon-fillthemeMovil {
-    display: none;
-  }
-  .themeMovil:active .icon-fillthemeMovil {
-    display: inline;
-  }
-
-  .icon-themeMovil,
-  .icon-fillthemeMovil {
-    font-size: x-large;
-  }
-
-  .header-right {
-    float: none;
-  }
+.desktopTheme {
+  display: inline;
 }
 
 ////////////////
@@ -217,30 +191,6 @@ body {
   h2 {
     padding-top: 3%;
     width: 50%;
-  }
-}
-
-@media screen and (max-width: 500px) {
-  .about-section {
-    padding: 40px;
-
-    h1 {
-      height: max-content;
-    }
-
-    h2 {
-      width: 100%;
-    }
-  }
-}
-
-@media screen and (max-width: 500px) {
-  .about-section {
-    padding: 40px;
-
-    h1 {
-      height: max-content;
-    }
   }
 }
 
@@ -338,19 +288,31 @@ body {
   //max-width: 1200px;
   margin: 0 auto;
   display: grid;
-  gap: 2.5rem;
+  gap: 3.5rem;
 }
 
 .grid-item {
-  background-color: rgb(235, 235, 235);
-  color: white;
-  padding: 1rem;
+  background-color: rgb(243, 243, 243);
+  color: rgb(250, 250, 250);
+  padding: 1.3rem;
   height: 8rem;
   color: #000000;
-
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 8px 24px;
   div {
     display: flex;
     align-items: center;
+  }
+
+  &:hover {
+    transition: all 0.2s ease-out;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 7px 29px 0px;
+    top: -4px;
+    //border: 1px solid #69696933;
+    background-color: rgb(243, 243, 243);
+    transform-origin: 50% 50%;
+    transition: transform 0.15s ease-out;
+    transform: scale(1.1);
   }
 }
 
@@ -370,7 +332,13 @@ body {
   }
 }
 
-@media (min-width: 950px) {
+@media (min-width: 1300px) {
+  .grid-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1350px) {
   .grid-container {
     grid-template-columns: repeat(4, 1fr);
   }
