@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
@@ -9,7 +8,7 @@ import { TranslateService } from '@ngx-translate/core';
     './landing-movil-page.component.scss',
   ],
 })
-export class LandingPageComponent implements OnInit {
+export class LandingPageComponent implements OnInit, AfterViewInit {
   knowledges: any = [];
   themeSelection: boolean = true;
 
@@ -22,6 +21,71 @@ export class LandingPageComponent implements OnInit {
     translate.use('es');
   }
 
+  ngAfterViewInit() {
+    //this.animationName();
+    this.animationTitle();
+  }
+
+  animationName() {
+    const dataName = 'Josue Vargas';
+
+    function typeWriter(text: any, i: any, fnCallback: any) {
+      if (i < text.length) {
+        const name = document.getElementById('pageName'); // O puedes usar un selector Angular más específico.
+        if (name) {
+          name.innerHTML =
+            text.substring(0, i + 1) + '<span aria-hidden="true"></span>';
+        }
+
+        setTimeout(function () {
+          typeWriter(text, i + 1, fnCallback);
+        }, 200);
+      } else if (typeof fnCallback == 'function') {
+        setTimeout(fnCallback, 700);
+      }
+    }
+
+    function startTextAnimation() {
+      typeWriter(dataName, 0, function () {
+        setTimeout(function () {
+          startTextAnimation();
+        }, 2000);
+      });
+    }
+
+    startTextAnimation();
+  }
+
+  animationTitle() {
+    const dataTitle = 'Desarrollador Front-End';
+
+    function typeWriter(text: any, i: any, fnCallback: any) {
+      if (i < text.length) {
+        const name = document.querySelector('h1'); // O puedes usar un selector Angular más específico.
+        if (name) {
+          name.innerHTML =
+            text.substring(0, i + 1) + '<span aria-hidden="true"></span>';
+        }
+
+        setTimeout(function () {
+          typeWriter(text, i + 1, fnCallback);
+        }, 200);
+      } else if (typeof fnCallback == 'function') {
+        setTimeout(fnCallback, 700);
+      }
+    }
+
+    function startTextAnimation() {
+      typeWriter(dataTitle, 0, function () {
+        setTimeout(function () {
+          startTextAnimation();
+        }, 2000);
+      });
+    }
+
+    startTextAnimation();
+  }
+
   ngOnInit() {
     this.menus = this.translate.instant('menu');
 
@@ -29,6 +93,8 @@ export class LandingPageComponent implements OnInit {
     this.translate.get(['menu']).subscribe((translations) => {
       this.menus = translations.menu;
     });
+
+    console.log('OPCIONES', this.menus);
 
     this.themeDark();
     this.knowledges = [
@@ -81,9 +147,11 @@ export class LandingPageComponent implements OnInit {
   }
 
   changeTheme(state: boolean) {
+    console.log('CAMBIO DE TEMA');
     this.themeSelection = state;
     state ? this.themeDark() : this.themeLight();
   }
+
   themeDark() {
     document.getElementById('page')!.classList.add('dark-mode');
     document.getElementById('page')!.classList.remove('light-mode');
