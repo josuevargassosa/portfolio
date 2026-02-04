@@ -1,0 +1,56 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "skills": "Habilidades",
+    "projects": "Proyectos",
+    "resume": "Currículum",
+    "certificates": "Certificados",
+    "contact": "Contacto"
+  },
+  "hero": {
+    "name": "Josue Vargas",
+    "title": "Desarrollador Full Stack",
+    "description": "Me caracterizo por ser un profesional con liderazgo y proactivo en el trabajo, responsable y puntual en la entrega de proyectos."
+  },
+  "skills": {
+    "title": "Habilidades & Capacidades",
+    "subtitle": "CONOCIMIENTOS"
+  },
+  "projects": {
+    "title": "Mis Proyectos",
+    "subtitle": "Trabajos Destacados",
+    "viewProject": "Ver Proyecto",
+    "viewCode": "Ver Código",
+    "featured": "Destacado",
+    "viewAll": "Ver Todos los Proyectos"
+  },
+  "resume": {
+    "title": "Currículum",
+    "subtitle": "Experiencia y Educación",
+    "downloadCV": "Descargar CV",
+    "experience": "Experiencia Profesional",
+    "education": "Educación",
+    "present": "Actualidad",
+    "viewAll": "Ver Currículum Completo"
+  },
+  "certificates": {
+    "title": "Certificados",
+    "subtitle": "Certificaciones y Logros",
+    "viewCredential": "Ver Credencial",
+    "viewAll": "Ver Todos los Certificados"
+  },
+  "contact": {
+    "title": "Contacto",
+    "subtitle": "Hablemos",
+    "name": "Nombre",
+    "email": "Correo Electrónico",
+    "message": "Mensaje",
+    "send": "Enviar Mensaje",
+    "success": "¡Mensaje enviado exitosamente!",
+    "error": "Error al enviar mensaje",
+    "info": "Información de Contacto",
+    "location": "Ubicación",
+    "responseTime": "Tiempo de Respuesta",
+    "responseNote": "Generalmente respondo dentro de 24 horas en días hábiles."
+  }
+}
