@@ -1,0 +1,53 @@
+{
+  "nav": {
+    "home": "Home",
+    "skills": "Skills",
+    "projects": "Projects",
+    "resume": "Resume",
+    "certificates": "Certificates",
+    "contact": "Contact"
+  },
+  "hero": {
+    "name": "Josue Vargas",
+    "title": "Full Stack Developer",
+    "description": "I characterize myself as a professional with leadership and proactive at work, responsible and punctual in project delivery."
+  },
+  "skills": {
+    "title": "Skills & Abilities",
+    "subtitle": "KNOWLEDGE"
+  },
+  "projects": {
+    "title": "My Projects",
+    "subtitle": "Featured Work",
+    "viewProject": "View Project",
+    "viewCode": "View Code",
+    "featured": "Featured"
+  },
+  "resume": {
+    "title": "Resume",
+    "subtitle": "Experience and Education",
+    "downloadCV": "Download CV",
+    "experience": "Professional Experience",
+    "education": "Education",
+    "present": "Present"
+  },
+  "certificates": {
+    "title": "Certificates",
+    "subtitle": "Certifications and Achievements",
+    "viewCredential": "View Credential"
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "Let's Talk",
+    "name": "Name",
+    "email": "Email",
+    "message": "Message",
+    "send": "Send Message",
+    "success": "Message sent successfully!",
+    "error": "Error sending message",
+    "info": "Contact Information",
+    "location": "Location",
+    "responseTime": "Response Time",
+    "responseNote": "I typically respond within 24 hours on business days."
+  }
+}
