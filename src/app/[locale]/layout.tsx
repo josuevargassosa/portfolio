@@ -22,6 +22,10 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://josuevargassosa.com'),
+  icons: {
+    icon: '/images/josueLogo.png',
+    apple: '/images/josueLogo.png',
+  },
   title: {
     default: 'Josue Vargas - Full Stack Developer',
     template: '%s | Josue Vargas'

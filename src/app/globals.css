@@ -1,5 +1,10 @@
 @import "tailwindcss";
 
+html {
+  scroll-behavior: smooth;
+}
+
+
 @theme {
   --color-background: hsl(0 0% 100%);
   --color-foreground: hsl(0 0% 3.9%);
@@ -22,17 +27,33 @@
   --radius-md: calc(0.5rem - 2px);
   --radius-sm: calc(0.5rem - 4px);
 
-  --animate-wave: wave 25s cubic-bezier(.55,.5,.45,.5) infinite;
+  --animate-wave: wave 25s cubic-bezier(.55, .5, .45, .5) infinite;
   --animate-typewriter: typewriter 1s steps(1) infinite;
 
   @keyframes wave {
-    0% { transform: translate3d(-90px,0,0); }
-    100% { transform: translate3d(85px,0,0); }
+    0% {
+      transform: translate3d(-90px, 0, 0);
+    }
+
+    50% {
+      transform: translate3d(0, 2px, 0);
+    }
+
+    100% {
+      transform: translate3d(85px, 0, 0);
+    }
   }
 
   @keyframes typewriter {
-    0%, 100% { border-color: transparent; }
-    50% { border-color: currentColor; }
+
+    0%,
+    100% {
+      border-color: transparent;
+    }
+
+    50% {
+      border-color: currentColor;
+    }
   }
 }
 

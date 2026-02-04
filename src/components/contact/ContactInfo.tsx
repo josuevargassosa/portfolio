@@ -5,8 +5,8 @@ export function ContactInfo() {
   const t = useTranslations('contact');
 
   const items = [
-    {icon: Mail, label: t('email'), value: 'josue@ejemplo.com'},
-    {icon: MapPin, label: t('location'), value: 'Costa Rica'},
+    {icon: Mail, label: t('email'), value: 'josuevargass@hotmail.com'},
+    {icon: MapPin, label: t('location'), value: 'Guayaquil, Ecuador'},
     {icon: Clock, label: t('responseTime'), value: t('responseNote')},
   ];
 

@@ -9,8 +9,15 @@
   },
   "hero": {
     "name": "Josue Vargas",
-    "title": "Desarrollador Full Stack",
-    "description": "Me caracterizo por ser un profesional con liderazgo y proactivo en el trabajo, responsable y puntual en la entrega de proyectos."
+    "title": "Ingeniero de Software Senior",
+    "subtitle": "Ayudo a empresas a construir y escalar productos digitales sólidos.",
+    "description": "Más de 5 años liderando desarrollo con **Angular**, **NestJS** y **.NET** bajo buenas prácticas, **arquitectura limpia** y **CI/CD**.",
+    "cta": {
+      "projects": "Ver proyectos",
+      "resume": "Currículum",
+      "certificates": "Certificados",
+      "contact": "Hablemos"
+    }
   },
   "skills": {
     "title": "Habilidades & Capacidades",

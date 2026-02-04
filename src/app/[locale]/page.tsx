@@ -1,9 +1,9 @@
 import dynamic from 'next/dynamic';
-import {Header} from '@/components/layout/Header';
-import {Hero} from '@/components/home/Hero';
-import {WaveSVG} from '@/components/home/WaveSVG';
-import {SocialSidebar} from '@/components/layout/SocialSidebar';
-import {Footer} from '@/components/layout/Footer';
+import { Header } from '@/components/layout/Header';
+import { Hero } from '@/components/home/Hero';
+import { WaveSVG } from '@/components/home/WaveSVG';
+import { SocialSidebar } from '@/components/layout/SocialSidebar';
+import { Footer } from '@/components/layout/Footer';
 
 const SkillsGrid = dynamic(
   () => import('@/components/home/SkillsGrid').then((m) => m.SkillsGrid),
