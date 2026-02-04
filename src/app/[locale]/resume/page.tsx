@@ -1,9 +1,19 @@
+import type {Metadata} from 'next';
 import {useTranslations} from 'next-intl';
 import {experiences, education} from '@/data/experience';
 import {TimelineItem} from '@/components/resume/TimelineItem';
 import {Header} from '@/components/layout/Header';
 import {Footer} from '@/components/layout/Footer';
 import {Download} from 'lucide-react';
+
+export const metadata: Metadata = {
+  title: 'Currículum',
+  description: 'Experiencia profesional y educación de Josue Vargas, Full Stack Developer.',
+  openGraph: {
+    title: 'Currículum | Josue Vargas',
+    description: 'Experiencia profesional y educación de Josue Vargas.',
+  },
+};
 
 function formatPeriod(start: string, end: string | null, presentLabel: string): string {
   const fmt = (d: string) => (d.length > 4 ? d.slice(0, 7) : d);

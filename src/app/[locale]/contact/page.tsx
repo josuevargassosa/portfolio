@@ -1,8 +1,18 @@
+import type {Metadata} from 'next';
 import {Header} from '@/components/layout/Header';
 import {Footer} from '@/components/layout/Footer';
 import {ContactForm} from '@/components/contact/ContactForm';
 import {ContactInfo} from '@/components/contact/ContactInfo';
 import {useTranslations} from 'next-intl';
+
+export const metadata: Metadata = {
+  title: 'Contacto',
+  description: 'Contacta a Josue Vargas para proyectos de desarrollo web y móvil.',
+  openGraph: {
+    title: 'Contacto | Josue Vargas',
+    description: 'Contacta a Josue Vargas para proyectos de desarrollo.',
+  },
+};
 
 export default function ContactPage() {
   const t = useTranslations('contact');
