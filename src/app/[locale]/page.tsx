@@ -6,6 +6,7 @@ import {SocialSidebar} from '@/components/layout/SocialSidebar';
 import {ProjectsPreview} from '@/components/projects/ProjectsPreview';
 import {ResumePreview} from '@/components/resume/ResumePreview';
 import {CertificatesPreview} from '@/components/certificates/CertificatesPreview';
+import {ContactSection} from '@/components/contact/ContactSection';
 import {Footer} from '@/components/layout/Footer';
 
 export default function Home() {
@@ -20,6 +21,7 @@ export default function Home() {
         <ProjectsPreview />
         <ResumePreview />
         <CertificatesPreview />
+        <ContactSection />
       </main>
       <Footer />
     </>
