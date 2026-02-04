@@ -21,7 +21,8 @@
     "subtitle": "Featured Work",
     "viewProject": "View Project",
     "viewCode": "View Code",
-    "featured": "Featured"
+    "featured": "Featured",
+    "viewAll": "View All Projects"
   },
   "resume": {
     "title": "Resume",
@@ -29,12 +30,14 @@
     "downloadCV": "Download CV",
     "experience": "Professional Experience",
     "education": "Education",
-    "present": "Present"
+    "present": "Present",
+    "viewAll": "View Full Resume"
   },
   "certificates": {
     "title": "Certificates",
     "subtitle": "Certifications and Achievements",
-    "viewCredential": "View Credential"
+    "viewCredential": "View Credential",
+    "viewAll": "View All Certificates"
   },
   "contact": {
     "title": "Contact",
