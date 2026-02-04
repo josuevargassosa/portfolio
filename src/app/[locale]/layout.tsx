@@ -4,6 +4,7 @@ import {ThemeProvider} from 'next-themes';
 import {Inter, Poppins} from 'next/font/google';
 import type { Metadata } from 'next';
 import {JsonLd} from '@/components/seo/JsonLd';
+import {Analytics} from '@/components/shared/Analytics';
 import '../globals.css';
 
 const inter = Inter({
@@ -97,6 +98,7 @@ export default async function LocaleLayout({
             {children}
           </NextIntlClientProvider>
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );
