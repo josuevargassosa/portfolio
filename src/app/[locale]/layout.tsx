@@ -3,6 +3,7 @@ import {getMessages} from 'next-intl/server';
 import {ThemeProvider} from 'next-themes';
 import {Inter, Poppins} from 'next/font/google';
 import type { Metadata } from 'next';
+import {JsonLd} from '@/components/seo/JsonLd';
 import '../globals.css';
 
 const inter = Inter({
@@ -87,6 +88,9 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale} suppressHydrationWarning className={`${inter.variable} ${poppins.variable}`}>
+      <head>
+        <JsonLd />
+      </head>
       <body className="font-sans">
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
           <NextIntlClientProvider messages={messages}>
