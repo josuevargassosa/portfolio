@@ -21,7 +21,8 @@
     "subtitle": "Trabajos Destacados",
     "viewProject": "Ver Proyecto",
     "viewCode": "Ver Código",
-    "featured": "Destacado"
+    "featured": "Destacado",
+    "viewAll": "Ver Todos los Proyectos"
   },
   "resume": {
     "title": "Currículum",
@@ -29,12 +30,14 @@
     "downloadCV": "Descargar CV",
     "experience": "Experiencia Profesional",
     "education": "Educación",
-    "present": "Actualidad"
+    "present": "Actualidad",
+    "viewAll": "Ver Currículum Completo"
   },
   "certificates": {
     "title": "Certificados",
     "subtitle": "Certificaciones y Logros",
-    "viewCredential": "Ver Credencial"
+    "viewCredential": "Ver Credencial",
+    "viewAll": "Ver Todos los Certificados"
   },
   "contact": {
     "title": "Contacto",
