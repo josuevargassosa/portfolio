@@ -1,11 +1,11 @@
 'use client';
 
-import {useTranslations} from 'next-intl';
-import {motion} from 'framer-motion';
-import {ArrowRight} from 'lucide-react';
-import {Link} from '@/i18n/routing';
-import {experiences} from '@/data/experience';
-import {TimelineItem} from './TimelineItem';
+import { useTranslations } from 'next-intl';
+import { motion } from 'framer-motion';
+import { ArrowRight } from 'lucide-react';
+import { Link } from '@/i18n/routing';
+import { experiences } from '@/data/experience';
+import { TimelineItem } from './TimelineItem';
 
 function formatPeriod(start: string, end: string | null, presentLabel: string): string {
   const fmt = (d: string) => d.length > 4 ? d.slice(0, 7) : d;
@@ -17,12 +17,12 @@ export function ResumePreview() {
   const latest = experiences.slice(0, 2);
 
   return (
-    <section id="resume" className="py-20 px-6 lg:px-52">
+    <section id="resume" className="py-20 px-6 lg:px-52 scroll-mt-20">
       <motion.div
-        initial={{opacity: 0, y: 20}}
-        whileInView={{opacity: 1, y: 0}}
-        viewport={{once: true}}
-        transition={{duration: 0.6}}
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
         className="mb-12"
       >
         <h2 className="text-sm uppercase tracking-widest text-muted-foreground mb-2">
@@ -47,9 +47,9 @@ export function ResumePreview() {
       </div>
 
       <motion.div
-        initial={{opacity: 0}}
-        whileInView={{opacity: 1}}
-        viewport={{once: true}}
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
         className="mt-10 text-center"
       >
         <Link

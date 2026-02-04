@@ -1,23 +1,23 @@
 'use client';
 
-import {useTranslations} from 'next-intl';
-import {motion} from 'framer-motion';
-import {ArrowRight} from 'lucide-react';
-import {Link} from '@/i18n/routing';
-import {projects} from '@/data/projects';
-import {ProjectCard} from './ProjectCard';
+import { useTranslations } from 'next-intl';
+import { motion } from 'framer-motion';
+import { ArrowRight } from 'lucide-react';
+import { Link } from '@/i18n/routing';
+import { projects } from '@/data/projects';
+import { ProjectCard } from './ProjectCard';
 
 export function ProjectsPreview() {
   const t = useTranslations('projects');
   const featured = projects.filter((p) => p.featured).slice(0, 3);
 
   return (
-    <section id="projects" className="py-20 px-6 lg:px-52">
+    <section id="projects" className="py-20 px-6 lg:px-52 scroll-mt-20">
       <motion.div
-        initial={{opacity: 0, y: 20}}
-        whileInView={{opacity: 1, y: 0}}
-        viewport={{once: true}}
-        transition={{duration: 0.6}}
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
         className="mb-12"
       >
         <h2 className="text-sm uppercase tracking-widest text-muted-foreground mb-2">
@@ -35,9 +35,9 @@ export function ProjectsPreview() {
       </div>
 
       <motion.div
-        initial={{opacity: 0}}
-        whileInView={{opacity: 1}}
-        viewport={{once: true}}
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
         className="mt-10 text-center"
       >
         <Link

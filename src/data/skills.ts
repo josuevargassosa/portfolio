@@ -6,70 +6,117 @@ export interface Skill {
 }
 
 export const skills: Skill[] = [
+  // Frontend
   {
     id: 'angular',
     name: 'Angular',
-    logo: '/images/skills/angularLogo.png',
+    logo: '/images/skills/angularLogo.svg',
     category: 'frontend',
   },
   {
     id: 'typescript',
     name: 'TypeScript',
-    logo: '/images/skills/typescriptLogo.png',
+    logo: '/images/skills/typescriptLogo.svg',
     category: 'frontend',
   },
   {
     id: 'javascript',
     name: 'JavaScript',
-    logo: '/images/skills/javascriptLogo.png',
+    logo: '/images/skills/javascriptLogo.svg',
     category: 'frontend',
   },
   {
-    id: 'ionic',
-    name: 'Ionic',
-    logo: '/images/skills/ionicLogo.png',
-    category: 'mobile',
-  },
-  {
     id: 'html',
-    name: 'HTML',
-    logo: '/images/skills/htmlLogo.png',
+    name: 'HTML5',
+    logo: '/images/skills/htmlLogo.svg',
     category: 'frontend',
   },
   {
     id: 'css',
-    name: 'CSS',
-    logo: '/images/skills/cssLogo.png',
+    name: 'CSS3',
+    logo: '/images/skills/cssLogo.svg',
     category: 'frontend',
   },
+  // Backend
   {
-    id: 'git',
-    name: 'Git',
-    logo: '/images/skills/gitLogo.png',
-    category: 'tools',
-  },
-  {
-    id: 'flutter',
-    name: 'Flutter',
-    logo: '/images/skills/flutterLogo.png',
-    category: 'mobile',
-  },
-  {
-    id: 'sqlserver',
-    name: 'SQL Server',
-    logo: '/images/skills/sqlServerLogo.png',
-    category: 'database',
+    id: 'nestjs',
+    name: 'NestJS',
+    logo: '/images/skills/nestjsLogo.svg',
+    category: 'backend',
   },
   {
     id: 'nodejs',
     name: 'Node.js',
-    logo: '/images/skills/nodejsLogo.png',
+    logo: '/images/skills/nodejsLogo.svg',
     category: 'backend',
   },
   {
-    id: 'nestjs',
-    name: 'NestJS',
-    logo: '/images/skills/nestjsLogo.png',
+    id: 'dotnet',
+    name: '.NET',
+    logo: '/images/skills/dotnetLogo.svg',
     category: 'backend',
+  },
+  {
+    id: 'csharp',
+    name: 'C#',
+    logo: '/images/skills/csharpLogo.svg',
+    category: 'backend',
+  },
+  // Mobile
+  {
+    id: 'ionic',
+    name: 'Ionic',
+    logo: '/images/skills/ionicLogo.svg',
+    category: 'mobile',
+  },
+  {
+    id: 'flutter',
+    name: 'Flutter',
+    logo: '/images/skills/flutterLogo.svg',
+    category: 'mobile',
+  },
+  // Database
+  {
+    id: 'sqlserver',
+    name: 'SQL Server',
+    logo: '/images/skills/sqlServerLogo.svg',
+    category: 'database',
+  },
+  {
+    id: 'mysql',
+    name: 'MySQL',
+    logo: '/images/skills/mysqlLogo.svg',
+    category: 'database',
+  },
+  {
+    id: 'firebase',
+    name: 'Firebase',
+    logo: '/images/skills/firebaseLogo.svg',
+    category: 'database',
+  },
+  // Tools
+  {
+    id: 'git',
+    name: 'Git',
+    logo: '/images/skills/gitLogo.svg',
+    category: 'tools',
+  },
+  {
+    id: 'azuredevops',
+    name: 'Azure DevOps',
+    logo: '/images/skills/azureDevopsLogo.svg',
+    category: 'tools',
+  },
+  {
+    id: 'figma',
+    name: 'Figma',
+    logo: '/images/skills/figmaLogo.svg',
+    category: 'tools',
+  },
+  {
+    id: 'swagger',
+    name: 'Swagger',
+    logo: '/images/skills/swaggerLogo.svg',
+    category: 'tools',
   },
 ];
