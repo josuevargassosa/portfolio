@@ -1,8 +1,18 @@
+import type {Metadata} from 'next';
 import {useTranslations} from 'next-intl';
 import {projects} from '@/data/projects';
 import {ProjectCard} from '@/components/projects/ProjectCard';
 import {Header} from '@/components/layout/Header';
 import {Footer} from '@/components/layout/Footer';
+
+export const metadata: Metadata = {
+  title: 'Proyectos',
+  description: 'Portafolio de proyectos de desarrollo web y móvil. Angular, React, Next.js, Node.js, Flutter y más.',
+  openGraph: {
+    title: 'Proyectos | Josue Vargas',
+    description: 'Portafolio de proyectos de desarrollo web y móvil.',
+  },
+};
 
 export default function ProjectsPage() {
   const t = useTranslations('projects');

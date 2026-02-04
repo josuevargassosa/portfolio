@@ -1,8 +1,18 @@
+import type {Metadata} from 'next';
 import {useTranslations} from 'next-intl';
 import {certificates} from '@/data/certificates';
 import {CertificateCard} from '@/components/certificates/CertificateCard';
 import {Header} from '@/components/layout/Header';
 import {Footer} from '@/components/layout/Footer';
+
+export const metadata: Metadata = {
+  title: 'Certificados',
+  description: 'Certificaciones profesionales en desarrollo web, móvil y bases de datos.',
+  openGraph: {
+    title: 'Certificados | Josue Vargas',
+    description: 'Certificaciones profesionales de Josue Vargas.',
+  },
+};
 
 export default function CertificatesPage() {
   const t = useTranslations('certificates');
