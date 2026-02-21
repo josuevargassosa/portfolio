@@ -59,5 +59,9 @@
     "location": "Ubicación",
     "responseTime": "Tiempo de Respuesta",
     "responseNote": "Generalmente respondo dentro de 24 horas en días hábiles."
+  },
+  "whatsapp": {
+    "cta": "¿Iniciamos?",
+    "message": "Hola Josue, vi tu portafolio web y me gustaría conversar sobre un proyecto. ¿Podemos hablar?"
   }
 }

@@ -59,5 +59,9 @@
     "location": "Location",
     "responseTime": "Response Time",
     "responseNote": "I typically respond within 24 hours on business days."
+  },
+  "whatsapp": {
+    "cta": "Let's start!",
+    "message": "Hi Josue, I saw your portfolio website and I'd like to discuss a project. Can we talk?"
   }
 }
