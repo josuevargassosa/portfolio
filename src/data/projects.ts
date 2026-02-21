@@ -5,7 +5,6 @@ export interface Project {
   thumbnail: string;
   techStack: string[];
   liveUrl?: string;
-  githubUrl?: string;
   featured: boolean;
 }
 
@@ -53,7 +52,6 @@ export const projects: Project[] = [
       'Portafolio profesional con soporte multilenguaje, tema oscuro/claro y animaciones.',
     thumbnail: '/images/projects/placeholder.webp',
     techStack: ['Next.js', 'React', 'Tailwind CSS', 'TypeScript'],
-    githubUrl: 'https://github.com/josuevargassosa/josuevargassosa',
     featured: false,
   },
 ];

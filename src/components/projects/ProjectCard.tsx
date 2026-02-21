@@ -2,7 +2,7 @@
 
 import {useTranslations} from 'next-intl';
 import {motion} from 'framer-motion';
-import {ExternalLink, Github} from 'lucide-react';
+import {ExternalLink} from 'lucide-react';
 import type {Project} from '@/data/projects';
 
 export function ProjectCard({project}: {project: Project}) {
@@ -57,17 +57,6 @@ export function ProjectCard({project}: {project: Project}) {
             >
               <ExternalLink size={14} />
               {t('viewProject')}
-            </a>
-          )}
-          {project.githubUrl && (
-            <a
-              href={project.githubUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-sm font-medium hover:underline"
-            >
-              <Github size={14} />
-              {t('viewCode')}
             </a>
           )}
         </div>

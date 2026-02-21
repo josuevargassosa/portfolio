@@ -1,17 +1,11 @@
 export interface SocialLink {
   name: string;
   url: string;
-  icon: 'instagram' | 'linkedin' | 'github';
+  icon: 'linkedin' | 'github';
   color: string;
 }
 
 export const socialLinks: SocialLink[] = [
-  {
-    name: 'Instagram',
-    url: 'https://www.instagram.com/josuevargassosa/',
-    icon: 'instagram',
-    color: '#e1306c',
-  },
   {
     name: 'LinkedIn',
     url: 'https://www.linkedin.com/in/josue-vargas-sosa',
