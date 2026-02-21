@@ -5,6 +5,7 @@ import {Inter, Poppins} from 'next/font/google';
 import type { Metadata } from 'next';
 import {JsonLd} from '@/components/seo/JsonLd';
 import {Analytics} from '@/components/shared/Analytics';
+import {WhatsAppButton} from '@/components/shared/WhatsAppButton';
 import '../globals.css';
 
 const inter = Inter({
@@ -100,6 +101,7 @@ export default async function LocaleLayout({
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
           <NextIntlClientProvider messages={messages}>
             {children}
+            <WhatsAppButton />
           </NextIntlClientProvider>
         </ThemeProvider>
         <Analytics />

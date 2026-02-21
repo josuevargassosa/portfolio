@@ -1,10 +1,9 @@
 'use client';
 
-import {Instagram, Linkedin, Github} from 'lucide-react';
+import {Linkedin, Github} from 'lucide-react';
 import {socialLinks} from '@/data/social-links';
 
 const iconMap = {
-  instagram: Instagram,
   linkedin: Linkedin,
   github: Github,
 } as const;
