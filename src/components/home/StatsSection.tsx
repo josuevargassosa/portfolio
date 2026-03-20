@@ -49,7 +49,7 @@ function StatCard({ value, suffix, label, icon: Icon, index, isVisible }: StatCa
       initial={{ opacity: 0, y: 24 }}
       animate={isVisible ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.5, delay: index * 0.12, ease: [0.4, 0, 0.2, 1] }}
-      className="group relative flex flex-col items-center gap-3 px-6 py-8 rounded-2xl border border-border/40 bg-background/40 backdrop-blur-md transition-all duration-300 hover:border-border/80 hover:bg-background/60 hover:shadow-lg hover:shadow-black/5 dark:hover:shadow-black/20"
+      className="group relative flex flex-col items-center gap-3 px-6 py-8 rounded-2xl border border-border/50 bg-secondary/50 dark:bg-background/40 backdrop-blur-md transition-all duration-300 hover:border-border hover:bg-secondary dark:hover:bg-background/60 hover:shadow-lg hover:shadow-black/5 dark:hover:shadow-black/20"
     >
       <div className="flex items-center justify-center w-11 h-11 rounded-xl bg-foreground/5 text-foreground/60 transition-colors group-hover:bg-foreground/10 group-hover:text-foreground">
         <Icon size={22} strokeWidth={1.8} />

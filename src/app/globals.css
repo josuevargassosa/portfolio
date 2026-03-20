@@ -133,6 +133,13 @@ div[data-testid="cal-modal-overlay"] .animate-spin,
 }
 
 .text-gradient {
+  background: linear-gradient(135deg, var(--color-foreground) 0%, var(--color-foreground) 40%, var(--color-muted-foreground) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.dark .text-gradient {
   background: linear-gradient(135deg, var(--color-foreground) 0%, var(--color-muted-foreground) 100%);
   -webkit-background-clip: text;
   background-clip: text;

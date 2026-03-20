@@ -60,7 +60,7 @@ export function SkillsGrid() {
                     key={skill.id}
                     variants={item}
                     whileHover={{ scale: 1.05, y: -2 }}
-                    className="flex items-center gap-2.5 bg-secondary/80 border border-border/30 rounded-lg px-4 py-2.5 hover:bg-secondary hover:border-border/60 transition-colors cursor-default"
+                    className="flex items-center gap-2.5 bg-secondary border border-border/50 rounded-lg px-4 py-2.5 hover:border-border transition-colors cursor-default"
                   >
                     <div className="relative w-5 h-5 shrink-0">
                       <Image
