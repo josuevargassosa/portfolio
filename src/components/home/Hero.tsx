@@ -108,7 +108,7 @@ export function Hero() {
         </motion.p>
 
         {/* Main title with typewriter */}
-        <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold mb-5 font-heading min-h-[1.2em] leading-[1.1] text-gradient">
+        <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold mb-5 font-heading min-h-[2.4em] leading-[1.1] text-gradient">
           {titleText}
           <span className="inline-block w-[3px] h-[0.85em] bg-foreground ml-1 align-middle animate-typewriter" />
         </h1>
