@@ -10,6 +10,26 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    id: 'menudigital',
+    title: 'MenuDigital.ec',
+    description:
+      'SaaS de menús digitales para restaurantes en Ecuador. Panel admin con analytics, multi-sucursal, roles de equipo, 3 templates personalizables y pedidos directos por WhatsApp. Planes Free, Pro y Enterprise.',
+    thumbnail: '/images/projects/placeholder.webp',
+    techStack: ['Angular', 'NestJS', 'TypeScript', 'SQL Server', 'Cloudinary'],
+    liveUrl: 'https://www.menudigital.ec/',
+    featured: true,
+  },
+  {
+    id: 'invitacion-boda',
+    title: 'Invitación Digital de Boda',
+    description:
+      'Invitación web interactiva con música ambiental, cuenta regresiva, galería de fotos, itinerario, mesa de regalos, integración con Google Calendar y confirmación de asistencia con formulario.',
+    thumbnail: '/images/projects/placeholder.webp',
+    techStack: ['Next.js', 'React', 'Tailwind CSS', 'TypeScript', 'Vercel'],
+    liveUrl: 'https://invitacion-boda-carlos-lucia.josuevargassosa.com/',
+    featured: true,
+  },
+  {
     id: 'project-1',
     title: 'Sistema Web Menú Digital',
     description:
@@ -43,7 +63,7 @@ export const projects: Project[] = [
       'Aplicación móvil para la gestión y consulta de eventos con autenticación y datos en tiempo real.',
     thumbnail: '/images/projects/placeholder.webp',
     techStack: ['Ionic', 'Firebase'],
-    featured: true,
+    featured: false,
   },
   {
     id: 'project-5',

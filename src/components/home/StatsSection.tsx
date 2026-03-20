@@ -75,7 +75,7 @@ export function StatsSection() {
 
   const stats = [
     { value: 6, suffix: '+', label: t('experience'), icon: Briefcase },
-    { value: 6, suffix: '+', label: t('projects'), icon: FolderGit2 },
+    { value: 7, suffix: '+', label: t('projects'), icon: FolderGit2 },
     { value: 12, suffix: '+', label: t('certificates'), icon: Award },
     { value: 18, suffix: '+', label: t('technologies'), icon: Cpu },
   ];
