@@ -1,6 +1,6 @@
 export function WaveSVG() {
   return (
-    <div className="w-full h-[8vh] min-h-[60px] max-h-[80px] -mb-[7px]">
+    <div className="w-full h-[8vh] min-h-[60px] max-h-[80px] -mb-[7px]" aria-hidden="true">
       <svg
         className="w-full h-full"
         xmlns="http://www.w3.org/2000/svg"
@@ -20,28 +20,28 @@ export function WaveSVG() {
             xlinkHref="#gentle-wave"
             x="48"
             y="0"
-            className="fill-background/70 animate-wave"
+            className="fill-foreground/[0.03] animate-wave"
             style={{animationDelay: '-2s', animationDuration: '7s'}}
           />
           <use
             xlinkHref="#gentle-wave"
             x="48"
             y="3"
-            className="fill-background/50 animate-wave"
+            className="fill-foreground/[0.05] animate-wave"
             style={{animationDelay: '-3s', animationDuration: '10s'}}
           />
           <use
             xlinkHref="#gentle-wave"
             x="48"
             y="5"
-            className="fill-background/30 animate-wave"
+            className="fill-foreground/[0.07] animate-wave"
             style={{animationDelay: '-4s', animationDuration: '13s'}}
           />
           <use
             xlinkHref="#gentle-wave"
             x="48"
             y="7"
-            className="fill-background animate-wave"
+            className="fill-foreground/[0.1] animate-wave"
             style={{animationDelay: '-5s', animationDuration: '20s'}}
           />
         </g>
