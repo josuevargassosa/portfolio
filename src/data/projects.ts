@@ -15,7 +15,7 @@ export const projects: Project[] = [
     description:
       'SaaS de menú digital para restaurantes en Ecuador. Monorepo con landing, panel admin (dashboard, analytics, multi-sucursal, roles, facturación Stripe) y menús públicos con 3 templates. Pedidos por WhatsApp sin comisiones.',
     thumbnail: '/images/projects/menudigital.jpg',
-    techStack: ['Next.js', 'NestJS', 'Prisma', 'PostgreSQL', 'Stripe', 'Cloudinary', 'Vercel', 'Railway'],
+    techStack: ['Next.js', 'NestJS', 'Prisma', 'PostgreSQL', 'Cloudinary', 'Vercel', 'Railway'],
     liveUrl: 'https://www.menudigital.ec/',
     featured: true,
   },
