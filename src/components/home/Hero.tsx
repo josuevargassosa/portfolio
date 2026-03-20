@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState, useCallback, type ReactNode } from 'react';
+import { useEffect, useState, type ReactNode } from 'react';
 import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
 import { ArrowRight, FileText, Award, MessageSquare } from 'lucide-react';
@@ -27,37 +27,21 @@ export function Hero() {
   const [titleText, setTitleText] = useState('');
   const fullTitle = t('title');
 
-  const runTypewriter = useCallback(() => {
-    let index = 0;
-    let isDeleting = false;
-
-    const tick = () => {
-      if (!isDeleting) {
-        setTitleText(fullTitle.substring(0, index + 1));
-        index++;
-        if (index >= fullTitle.length) {
-          isDeleting = true;
-          setTimeout(tick, 2000);
-          return;
-        }
-      } else {
-        setTitleText(fullTitle.substring(0, index - 1));
-        index--;
-        if (index <= 0) {
-          isDeleting = false;
-          setTimeout(tick, 500);
-          return;
-        }
-      }
-      setTimeout(tick, isDeleting ? 80 : 150);
-    };
-
-    tick();
-  }, [fullTitle]);
+  const [done, setDone] = useState(false);
 
   useEffect(() => {
-    runTypewriter();
-  }, [runTypewriter]);
+    let index = 0;
+    const tick = () => {
+      setTitleText(fullTitle.substring(0, index + 1));
+      index++;
+      if (index >= fullTitle.length) {
+        setDone(true);
+        return;
+      }
+      setTimeout(tick, 80);
+    };
+    tick();
+  }, [fullTitle]);
 
   const ctaButtons = [
     {
@@ -108,9 +92,11 @@ export function Hero() {
         </motion.p>
 
         {/* Main title with typewriter */}
-        <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold mb-5 font-heading min-h-[2.4em] leading-[1.1] text-gradient">
+        <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold mb-5 font-heading leading-[1.1] text-gradient">
           {titleText}
-          <span className="inline-block w-[3px] h-[0.85em] bg-foreground ml-1 align-middle animate-typewriter" />
+          {!done && (
+            <span className="inline-block w-[3px] h-[0.85em] bg-foreground ml-1 align-middle animate-typewriter" />
+          )}
         </h1>
 
         {/* Subtitle - value proposition */}
