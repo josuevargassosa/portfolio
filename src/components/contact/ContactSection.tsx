@@ -1,27 +1,160 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useCallback } from 'react';
 import { useTranslations } from 'next-intl';
+import { useTheme } from 'next-themes';
 import { motion } from 'framer-motion';
 import { Calendar, Briefcase, ArrowUpRight } from 'lucide-react';
 import Cal, { getCalApi } from '@calcom/embed-react';
 
+function replaceCalLoader(calModal: Element, isDark: boolean) {
+  const shadow = calModal.shadowRoot;
+  if (!shadow) return;
+
+  // Inject styles: hide native loader + add custom logo loader (theme-aware)
+  const existing = shadow.querySelector('#custom-cal-loader-styles');
+  if (existing) existing.remove();
+
+  const style = document.createElement('style');
+  style.id = 'custom-cal-loader-styles';
+  style.textContent = `
+    .loader, .modal-loader {
+      display: none !important;
+    }
+    .custom-logo-loader {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 999999;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+    }
+    .custom-logo-loader img {
+      width: 64px;
+      height: 64px;
+      object-fit: contain;
+      ${isDark ? 'filter: invert(1);' : ''}
+      animation: logoPulse 2s ease-in-out infinite;
+    }
+    .custom-logo-loader .bar-track {
+      width: 48px;
+      height: 2px;
+      border-radius: 9999px;
+      background: ${isDark ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.1)'};
+      overflow: hidden;
+    }
+    .custom-logo-loader .bar-fill {
+      width: 100%;
+      height: 100%;
+      border-radius: 9999px;
+      background: ${isDark ? 'rgba(255,255,255,0.4)' : 'rgba(0,0,0,0.3)'};
+      animation: loadingBar 1.2s ease-in-out infinite;
+    }
+    @keyframes logoPulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.95); }
+    }
+    @keyframes loadingBar {
+      0% { transform: translateX(-100%); }
+      50% { transform: translateX(0); }
+      100% { transform: translateX(100%); }
+    }
+  `;
+  shadow.appendChild(style);
+
+  // Always insert logo as a branding splash while Cal.com modal opens
+  const modalBox = shadow.querySelector('.modal-box') || shadow.querySelector('.body');
+  if (modalBox && !shadow.querySelector('.custom-logo-loader')) {
+    const loader = document.createElement('div');
+    loader.className = 'custom-logo-loader';
+    loader.innerHTML = `
+      <img src="/images/skills/josueLogo.png" alt="Loading" />
+      <div class="bar-track"><div class="bar-fill"></div></div>
+    `;
+    modalBox.appendChild(loader);
+
+    // Fade out and remove after brief display
+    setTimeout(() => {
+      loader.style.transition = 'opacity 0.3s ease-out';
+      loader.style.opacity = '0';
+      setTimeout(() => loader.remove(), 300);
+    }, 1200);
+  }
+
+  // Hide native loader on re-renders
+  const innerObserver = new MutationObserver(() => {
+    const nativeLoader = shadow.querySelector('.loader, .modal-loader');
+    if (nativeLoader instanceof HTMLElement) {
+      nativeLoader.style.display = 'none';
+    }
+  });
+  innerObserver.observe(shadow, { childList: true, subtree: true });
+}
+
 export function ContactSection() {
   const t = useTranslations('contact');
+  const { resolvedTheme } = useTheme();
+  const isDark = resolvedTheme === 'dark';
+
+  const syncCalTheme = useCallback(async () => {
+    const cal = await getCalApi();
+    cal('ui', {
+      theme: isDark ? 'dark' : 'light',
+      cssVarsPerTheme: {
+        dark: { 'cal-brand': '#ffffff' },
+        light: { 'cal-brand': '#0a0a0a' },
+      },
+      hideEventTypeDetails: false,
+    });
+  }, [isDark]);
+
+  // Sync theme on mount and when theme changes
+  // Reset Cal.com's cached iframe so it recreates with the new theme
+  useEffect(() => {
+    syncCalTheme();
+
+    // Reset Cal.com internal instance to force new iframe with correct theme
+    const calGlobal = (window as unknown as Record<string, unknown>).Cal as Record<string, unknown> | undefined;
+    if (calGlobal?.instance) {
+      const inst = calGlobal.instance as Record<string, unknown>;
+      if (inst.iframe && inst.iframe instanceof HTMLElement) {
+        inst.iframe.remove();
+        inst.iframe = null;
+      }
+      if (inst.modalBox && inst.modalBox instanceof HTMLElement) {
+        inst.modalBox.remove();
+        inst.modalBox = null;
+      }
+      inst.iframeReady = false;
+      inst.calLink = null;
+    }
+    // Clean up any orphaned elements
+    document.querySelectorAll('cal-modal-box, iframe.cal-embed').forEach((el) => el.remove());
+  }, [syncCalTheme, isDark]);
 
   useEffect(() => {
-    (async () => {
-      const cal = await getCalApi();
-      cal('ui', {
-        theme: 'dark',
-        cssVarsPerTheme: {
-          dark: { 'cal-brand': '#ffffff' },
-          light: { 'cal-brand': '#0a0a0a' },
-        },
-        hideEventTypeDetails: false,
-      });
-    })();
-  }, []);
+    // Watch for ANY cal-modal-box appearing to hide native loader
+    const observer = new MutationObserver((mutations) => {
+      for (const mutation of mutations) {
+        for (const node of mutation.addedNodes) {
+          if (node instanceof HTMLElement) {
+            if (node.tagName === 'CAL-MODAL-BOX') {
+              replaceCalLoader(node, isDark);
+            }
+            node.querySelectorAll?.('cal-modal-box')?.forEach((el) =>
+              replaceCalLoader(el, isDark)
+            );
+          }
+        }
+      }
+    });
+    observer.observe(document.body, { childList: true, subtree: true });
+
+    return () => observer.disconnect();
+  }, [isDark]);
 
   const bookings = [
     {
@@ -63,6 +196,7 @@ export function ContactSection() {
             key={booking.calLink}
             data-cal-link={booking.calLink}
             data-cal-config='{"layout":"month_view"}'
+            onClick={() => syncCalTheme()}
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}

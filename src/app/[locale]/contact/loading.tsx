@@ -1,28 +1,19 @@
 export default function ContactLoading() {
   return (
-    <div className="animate-pulse pt-24 pb-20 px-6 lg:px-52">
-      <div className="h-4 w-24 bg-muted rounded mb-2" />
-      <div className="h-10 w-40 bg-muted rounded mb-12" />
-      <div className="grid lg:grid-cols-2 gap-12">
-        <div className="space-y-5">
-          {Array.from({length: 3}).map((_, i) => (
-            <div key={i}>
-              <div className="h-4 w-20 bg-muted rounded mb-1.5" />
-              <div className="h-10 w-full bg-muted rounded-lg" />
-            </div>
-          ))}
-          <div className="h-10 w-40 bg-muted rounded-lg" />
+    <div className="fixed inset-0 z-[100] flex items-center justify-center bg-background">
+      <div className="flex flex-col items-center gap-6 animate-fade-in">
+        <div className="relative w-16 h-16 animate-logo-pulse">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/images/skills/josueLogo.png"
+            alt="Loading"
+            width={64}
+            height={64}
+            className="w-full h-full object-contain dark:invert"
+          />
         </div>
-        <div className="space-y-4">
-          {Array.from({length: 3}).map((_, i) => (
-            <div key={i} className="flex gap-3">
-              <div className="w-9 h-9 bg-muted rounded-lg shrink-0" />
-              <div className="space-y-1">
-                <div className="h-4 w-24 bg-muted rounded" />
-                <div className="h-3 w-40 bg-muted rounded" />
-              </div>
-            </div>
-          ))}
+        <div className="w-12 h-0.5 rounded-full bg-foreground/10 overflow-hidden">
+          <div className="h-full w-full bg-foreground/40 rounded-full animate-loading-bar" />
         </div>
       </div>
     </div>

@@ -119,6 +119,14 @@ body {
   font-feature-settings: "rlig" 1, "calt" 1;
 }
 
+/* Hide Cal.com default loader and replace with custom logo */
+[data-cal-namespace] .loader,
+.cal-com-loader,
+div[data-testid="cal-modal-overlay"] .animate-spin,
+.cal-embed .loader {
+  display: none !important;
+}
+
 .text-gradient {
   background: linear-gradient(135deg, var(--color-foreground) 0%, var(--color-muted-foreground) 100%);
   -webkit-background-clip: text;
