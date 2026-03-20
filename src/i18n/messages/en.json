@@ -57,17 +57,18 @@
   },
   "contact": {
     "title": "Contact",
-    "subtitle": "Let's Talk",
-    "name": "Name",
-    "email": "Email",
-    "message": "Message",
-    "send": "Send Message",
-    "success": "Message sent successfully!",
-    "error": "Error sending message",
-    "info": "Contact Information",
-    "location": "Location",
-    "responseTime": "Response Time",
-    "responseNote": "I typically respond within 24 hours on business days."
+    "subtitle": "Book a Meeting",
+    "email": "Or reach me directly at",
+    "consultation": {
+      "title": "Project Consultation",
+      "description": "Let's discuss your project, technical needs, or freelance collaboration.",
+      "duration": "30 minutes"
+    },
+    "opportunity": {
+      "title": "Career Opportunity",
+      "description": "Let's talk about the role, team, and how I can contribute.",
+      "duration": "20 minutes"
+    }
   },
   "whatsapp": {
     "cta": "Let's start!",

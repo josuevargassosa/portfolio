@@ -57,17 +57,18 @@
   },
   "contact": {
     "title": "Contacto",
-    "subtitle": "Hablemos",
-    "name": "Nombre",
-    "email": "Correo Electrónico",
-    "message": "Mensaje",
-    "send": "Enviar Mensaje",
-    "success": "¡Mensaje enviado exitosamente!",
-    "error": "Error al enviar mensaje",
-    "info": "Información de Contacto",
-    "location": "Ubicación",
-    "responseTime": "Tiempo de Respuesta",
-    "responseNote": "Generalmente respondo dentro de 24 horas en días hábiles."
+    "subtitle": "Agenda una Reunión",
+    "email": "O escríbeme directamente a",
+    "consultation": {
+      "title": "Consultoría / Proyecto",
+      "description": "Hablemos sobre tu proyecto, necesidades técnicas o colaboración freelance.",
+      "duration": "30 minutos"
+    },
+    "opportunity": {
+      "title": "Oportunidad Laboral",
+      "description": "Conversemos sobre la posición, el equipo y cómo puedo contribuir.",
+      "duration": "20 minutos"
+    }
   },
   "whatsapp": {
     "cta": "¿Iniciamos?",
