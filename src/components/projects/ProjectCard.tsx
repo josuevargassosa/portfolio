@@ -1,18 +1,64 @@
 'use client';
 
-import {useTranslations} from 'next-intl';
-import {motion} from 'framer-motion';
-import {ExternalLink} from 'lucide-react';
-import type {Project} from '@/data/projects';
+import { useRef, type MouseEvent } from 'react';
+import { useTranslations } from 'next-intl';
+import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
+import { ExternalLink } from 'lucide-react';
+import type { Project } from '@/data/projects';
 
-export function ProjectCard({project}: {project: Project}) {
+export function ProjectCard({ project }: { project: Project }) {
   const t = useTranslations('projects');
+  const ref = useRef<HTMLElement>(null);
+
+  const x = useMotionValue(0.5);
+  const y = useMotionValue(0.5);
+
+  const springConfig = { stiffness: 300, damping: 20 };
+  const xSpring = useSpring(x, springConfig);
+  const ySpring = useSpring(y, springConfig);
+
+  const rotateX = useTransform(ySpring, [0, 1], [8, -8]);
+  const rotateY = useTransform(xSpring, [0, 1], [-8, 8]);
+  const glareX = useTransform(xSpring, [0, 1], [0, 100]);
+  const glareY = useTransform(ySpring, [0, 1], [0, 100]);
+
+  function handleMouseMove(e: MouseEvent) {
+    const el = ref.current;
+    if (!el) return;
+    const rect = el.getBoundingClientRect();
+    x.set((e.clientX - rect.left) / rect.width);
+    y.set((e.clientY - rect.top) / rect.height);
+  }
+
+  function handleMouseLeave() {
+    x.set(0.5);
+    y.set(0.5);
+  }
 
   return (
     <motion.article
-      whileHover={{y: -6}}
-      className="group bg-secondary rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow"
+      ref={ref}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      style={{
+        rotateX,
+        rotateY,
+        transformPerspective: 800,
+        transformStyle: 'preserve-3d',
+      }}
+      className="group relative bg-secondary rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow"
     >
+      {/* Glare overlay */}
+      <motion.div
+        style={{
+          background: useTransform(
+            [glareX, glareY],
+            ([gx, gy]) => `radial-gradient(circle at ${gx}% ${gy}%, rgba(255,255,255,0.08) 0%, transparent 60%)`
+          ),
+        }}
+        className="absolute inset-0 z-10 pointer-events-none rounded-xl"
+      />
+
       <div className="aspect-video bg-muted flex items-center justify-center text-muted-foreground text-sm">
         {project.thumbnail.includes('placeholder') ? (
           <span className="uppercase tracking-wider">{project.title}</span>
