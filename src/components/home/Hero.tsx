@@ -89,7 +89,7 @@ export function Hero() {
   return (
     <section
       id="home"
-      className="min-h-[85vh] flex items-center pt-20 pb-10 px-6 lg:px-52"
+      className="pt-32 pb-16 px-6 lg:px-52"
     >
       <motion.div
         initial={{ opacity: 0, y: 30 }}
