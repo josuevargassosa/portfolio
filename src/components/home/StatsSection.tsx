@@ -84,7 +84,7 @@ export function StatsSection() {
     <section
       ref={ref}
       aria-label={t('ariaLabel')}
-      className="px-6 lg:px-52 py-16"
+      className="px-6 lg:px-52 py-20"
     >
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
         {stats.map((stat, i) => (
