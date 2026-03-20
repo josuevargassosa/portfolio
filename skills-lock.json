@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "skills": {
+    "designing-beautiful-websites": {
+      "source": "tristanmanchester/agent-skills",
+      "sourceType": "github",
+      "computedHash": "c67a4b7ed14f77e4e65a3546acd8360e376b6f6f539c32157593085e58e1988b"
+    }
+  }
+}

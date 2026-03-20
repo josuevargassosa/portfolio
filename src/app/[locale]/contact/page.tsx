@@ -25,7 +25,7 @@ export default function ContactPage() {
           <h1 className="text-sm uppercase tracking-widest text-muted-foreground mb-2">
             {t('title')}
           </h1>
-          <p className="text-4xl font-bold font-heading uppercase tracking-wider">
+          <p className="text-4xl font-bold font-heading uppercase tracking-wider text-gradient">
             {t('subtitle')}
           </p>
         </div>
