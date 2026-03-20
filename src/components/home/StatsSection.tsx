@@ -77,7 +77,7 @@ export function StatsSection() {
     { value: 6, suffix: '+', label: t('experience'), icon: Briefcase },
     { value: 7, suffix: '+', label: t('projects'), icon: FolderGit2 },
     { value: 12, suffix: '+', label: t('certificates'), icon: Award },
-    { value: 18, suffix: '+', label: t('technologies'), icon: Cpu },
+    { value: 25, suffix: '+', label: t('technologies'), icon: Cpu },
   ];
 
   return (
