@@ -33,5 +33,12 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# IA  
+# IA & Agent Skills
 .claude
+.codex
+.agents
+skills/
+skills-lock.json
+
+# Documents
+*.pdf

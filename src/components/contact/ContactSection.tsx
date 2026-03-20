@@ -20,7 +20,7 @@ export function ContactSection() {
         <h2 className="text-sm uppercase tracking-widest text-muted-foreground mb-2">
           {t('title')}
         </h2>
-        <p className="text-4xl font-bold font-heading uppercase tracking-wider">
+        <p className="text-4xl font-bold font-heading uppercase tracking-wider text-gradient">
           {t('subtitle')}
         </p>
       </motion.div>
