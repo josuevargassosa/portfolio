@@ -13,9 +13,9 @@ export const projects: Project[] = [
     id: 'menudigital',
     title: 'MenuDigital.ec',
     description:
-      'SaaS de menús digitales para restaurantes en Ecuador. Panel admin con analytics, multi-sucursal, roles de equipo, 3 templates personalizables y pedidos directos por WhatsApp. Planes Free, Pro y Enterprise.',
+      'SaaS de menú digital para restaurantes en Ecuador. Monorepo con landing, panel admin (dashboard, analytics, multi-sucursal, roles, facturación Stripe) y menús públicos con 3 templates. Pedidos por WhatsApp sin comisiones.',
     thumbnail: '/images/projects/menudigital.jpg',
-    techStack: ['Angular', 'NestJS', 'TypeScript', 'SQL Server', 'Cloudinary'],
+    techStack: ['Next.js', 'NestJS', 'Prisma', 'PostgreSQL', 'Stripe', 'Cloudinary', 'Vercel', 'Railway'],
     liveUrl: 'https://www.menudigital.ec/',
     featured: true,
   },
@@ -27,15 +27,6 @@ export const projects: Project[] = [
     thumbnail: '/images/projects/invitacion-boda.jpg',
     techStack: ['Next.js', 'React', 'Tailwind CSS', 'TypeScript', 'Vercel'],
     liveUrl: 'https://invitacion-boda-carlos-lucia.josuevargassosa.com/',
-    featured: true,
-  },
-  {
-    id: 'project-1',
-    title: 'Sistema Web Menú Digital',
-    description:
-      'Sistema web para la gestión y visualización de menús digitales para restaurantes, con administración de productos e imágenes en la nube.',
-    thumbnail: '/images/projects/placeholder.webp',
-    techStack: ['Angular', 'Cloudinary', 'NestJS', 'Node.js'],
     featured: true,
   },
   {
