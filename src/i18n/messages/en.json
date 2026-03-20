@@ -21,6 +21,8 @@
   },
   "stats": {
     "ariaLabel": "Professional statistics",
+    "title": "Track Record",
+    "subtitle": "In Numbers",
     "experience": "Years Experience",
     "projects": "Projects",
     "certificates": "Certificates",

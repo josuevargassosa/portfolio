@@ -86,6 +86,21 @@ export function StatsSection() {
       aria-label={t('ariaLabel')}
       className="px-6 lg:px-52 py-20"
     >
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5 }}
+        className="mb-12"
+      >
+        <h2 className="text-sm uppercase tracking-widest text-muted-foreground mb-2">
+          {t('title')}
+        </h2>
+        <p className="text-4xl font-bold font-heading uppercase tracking-wider">
+          {t('subtitle')}
+        </p>
+      </motion.div>
+
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
         {stats.map((stat, i) => (
           <StatCard
