@@ -1,6 +1,6 @@
 export function WaveSVG() {
   return (
-    <div className="w-full h-[15vh] min-h-[100px] max-h-[150px] -mb-[7px]">
+    <div className="w-full h-[8vh] min-h-[60px] max-h-[80px] -mb-[7px]">
       <svg
         className="w-full h-full"
         xmlns="http://www.w3.org/2000/svg"
