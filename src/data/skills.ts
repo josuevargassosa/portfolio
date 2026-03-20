@@ -41,6 +41,7 @@ export const skills: Skill[] = [
 
   // Database
   { id: 'sqlserver', name: 'SQL Server', logo: '/images/skills/sqlServerLogo.svg', category: 'database' },
+  { id: 'postgresql', name: 'PostgreSQL', logo: '/images/skills/postgresqlLogo.svg', category: 'database' },
   { id: 'mysql', name: 'MySQL', logo: '/images/skills/mysqlLogo.svg', category: 'database' },
   { id: 'firebase', name: 'Firebase', logo: '/images/skills/firebaseLogo.svg', category: 'database' },
 
