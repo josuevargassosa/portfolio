@@ -1,7 +1,6 @@
 import dynamic from 'next/dynamic';
 import { Header } from '@/components/layout/Header';
 import { Hero } from '@/components/home/Hero';
-import { WaveSVG } from '@/components/home/WaveSVG';
 import { StatsSection } from '@/components/home/StatsSection';
 import { SocialSidebar } from '@/components/layout/SocialSidebar';
 import { Footer } from '@/components/layout/Footer';
@@ -29,7 +28,6 @@ export default function Home() {
       <SocialSidebar />
       <main>
         <Hero />
-        <WaveSVG />
         <StatsSection />
         <SkillsGrid />
         <ProjectsPreview />
