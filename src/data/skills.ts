@@ -2,7 +2,7 @@ export interface Skill {
   id: string;
   name: string;
   logo: string;
-  category: 'languages' | 'frontend' | 'backend' | 'mobile' | 'database' | 'devops' | 'tools';
+  category: 'languages' | 'frontend' | 'backend' | 'mobile' | 'database' | 'devops' | 'testing' | 'tools';
 }
 
 export const skillCategories = [
@@ -12,6 +12,7 @@ export const skillCategories = [
   { key: 'mobile', label: 'Mobile' },
   { key: 'database', label: 'Database' },
   { key: 'devops', label: 'DevOps & Cloud' },
+  { key: 'testing', label: 'Testing' },
   { key: 'tools', label: 'Tools' },
 ] as const;
 
@@ -49,6 +50,9 @@ export const skills: Skill[] = [
   { id: 'azuredevops', name: 'Azure DevOps', logo: '/images/skills/azureDevopsLogo.svg', category: 'devops' },
   { id: 'docker', name: 'Docker', logo: '/images/skills/dockerLogo.svg', category: 'devops' },
   { id: 'git', name: 'Git', logo: '/images/skills/gitLogo.svg', category: 'devops' },
+
+  // Testing
+  { id: 'jest', name: 'Jest', logo: '/images/skills/jestLogo.svg', category: 'testing' },
 
   // Tools
   { id: 'claudeai', name: 'Claude AI', logo: '/images/skills/claudeaiLogo.svg', category: 'tools' },
