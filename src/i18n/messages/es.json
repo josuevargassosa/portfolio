@@ -19,6 +19,13 @@
       "contact": "Hablemos"
     }
   },
+  "stats": {
+    "ariaLabel": "Estadísticas profesionales",
+    "experience": "Años de Experiencia",
+    "projects": "Proyectos",
+    "certificates": "Certificados",
+    "technologies": "Tecnologías"
+  },
   "skills": {
     "title": "Habilidades & Capacidades",
     "subtitle": "CONOCIMIENTOS"

@@ -19,6 +19,13 @@
       "contact": "Let's talk"
     }
   },
+  "stats": {
+    "ariaLabel": "Professional statistics",
+    "experience": "Years Experience",
+    "projects": "Projects",
+    "certificates": "Certificates",
+    "technologies": "Technologies"
+  },
   "skills": {
     "title": "Skills & Abilities",
     "subtitle": "KNOWLEDGE"
