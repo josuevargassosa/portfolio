@@ -1,25 +1,41 @@
 'use client';
 
+import { useEffect } from 'react';
 import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
 import { Calendar, Briefcase, ArrowUpRight } from 'lucide-react';
+import Cal, { getCalApi } from '@calcom/embed-react';
 
 export function ContactSection() {
   const t = useTranslations('contact');
+
+  useEffect(() => {
+    (async () => {
+      const cal = await getCalApi();
+      cal('ui', {
+        theme: 'dark',
+        cssVarsPerTheme: {
+          dark: { 'cal-brand': '#ffffff' },
+          light: { 'cal-brand': '#0a0a0a' },
+        },
+        hideEventTypeDetails: false,
+      });
+    })();
+  }, []);
 
   const bookings = [
     {
       title: t('consultation.title'),
       description: t('consultation.description'),
       duration: t('consultation.duration'),
-      url: 'https://cal.com/josuevargassosa/consultation',
+      calLink: 'josuevargassosa/consultation',
       icon: Calendar,
     },
     {
       title: t('opportunity.title'),
       description: t('opportunity.description'),
       duration: t('opportunity.duration'),
-      url: 'https://cal.com/josuevargassosa/opportunity',
+      calLink: 'josuevargassosa/opportunity',
       icon: Briefcase,
     },
   ];
@@ -43,16 +59,15 @@ export function ContactSection() {
 
       <div className="grid md:grid-cols-2 gap-6 max-w-3xl">
         {bookings.map((booking, i) => (
-          <motion.a
-            key={booking.url}
-            href={booking.url}
-            target="_blank"
-            rel="noopener noreferrer"
+          <motion.button
+            key={booking.calLink}
+            data-cal-link={booking.calLink}
+            data-cal-config='{"layout":"month_view"}'
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: i * 0.12 }}
-            className="group relative flex flex-col gap-4 p-6 rounded-2xl border border-border/40 bg-secondary/80 backdrop-blur-md transition-all duration-300 hover:border-border/80 hover:bg-secondary hover:shadow-lg hover:shadow-black/5 dark:hover:shadow-black/20"
+            className="group relative flex flex-col gap-4 p-6 rounded-2xl border border-border/40 bg-secondary/80 backdrop-blur-md transition-all duration-300 hover:border-border/80 hover:bg-secondary hover:shadow-lg hover:shadow-black/5 dark:hover:shadow-black/20 text-left cursor-pointer"
           >
             <div className="flex items-center justify-between">
               <div className="flex items-center justify-center w-11 h-11 rounded-xl bg-foreground/5 text-foreground/60 transition-colors group-hover:bg-foreground/10 group-hover:text-foreground">
@@ -74,7 +89,7 @@ export function ContactSection() {
             <span className="text-xs font-medium text-muted-foreground uppercase tracking-wider">
               {booking.duration}
             </span>
-          </motion.a>
+          </motion.button>
         ))}
       </div>
 
