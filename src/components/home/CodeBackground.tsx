@@ -96,7 +96,7 @@ export function CodeBackground() {
       className="fixed inset-0 z-0 overflow-hidden pointer-events-none select-none"
       aria-hidden="true"
     >
-      <div className="absolute inset-0 flex gap-8 opacity-[0.03] dark:opacity-[0.04]">
+      <div className="absolute inset-0 flex gap-8 opacity-[0.07] dark:opacity-[0.08]">
         <div className="animate-scroll-code shrink-0">
           <pre className="text-[11px] leading-[1.6] font-mono text-foreground whitespace-pre">
             {codeSnippet}
