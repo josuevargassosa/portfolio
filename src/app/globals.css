@@ -32,6 +32,7 @@ html {
   --animate-logo-pulse: logo-pulse 2s ease-in-out infinite;
   --animate-fade-in: fade-in 0.4s ease-out;
   --animate-loading-bar: loading-bar 1.2s ease-in-out infinite;
+  --animate-scroll-code: scroll-code 60s linear infinite;
 
   @keyframes wave {
     0% {
@@ -89,6 +90,15 @@ html {
     }
     100% {
       transform: translateX(100%);
+    }
+  }
+
+  @keyframes scroll-code {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(-50%);
     }
   }
 }
