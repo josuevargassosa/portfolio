@@ -73,7 +73,7 @@ export function Hero() {
   return (
     <section
       id="home"
-      className="pt-40 pb-16 px-6 lg:px-52"
+      className="pt-28 sm:pt-32 lg:pt-40 pb-10 sm:pb-16 px-6 lg:px-52"
     >
       <motion.div
         initial={{ opacity: 0, y: 30 }}
@@ -114,7 +114,7 @@ export function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.6, duration: 0.6 }}
-          className="text-base sm:text-lg text-muted-foreground max-w-2xl leading-relaxed mb-10"
+          className="text-base sm:text-lg text-muted-foreground max-w-2xl leading-relaxed mb-6 sm:mb-10"
         >
           {renderBold(t('description'))}
         </motion.p>
@@ -131,7 +131,7 @@ export function Hero() {
               key={href}
               href={href}
               className={`
-                inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-medium
+                inline-flex items-center gap-2 px-5 py-3 min-h-[44px] rounded-lg text-sm font-medium
                 transition-all duration-200 ease-out
                 ${
                   variant === 'primary'

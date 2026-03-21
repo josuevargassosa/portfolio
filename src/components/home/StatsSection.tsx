@@ -84,7 +84,7 @@ export function StatsSection() {
     <section
       ref={ref}
       aria-label={t('ariaLabel')}
-      className="px-6 lg:px-52 py-16"
+      className="px-6 lg:px-52 py-12 sm:py-16"
     >
       <motion.div
         initial={{ opacity: 0, y: 20 }}
