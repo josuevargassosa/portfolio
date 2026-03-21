@@ -19,32 +19,32 @@ export interface Education {
 export const experiences: Experience[] = [
   {
     id: 'exp-1',
-    company: 'Facilito S.A.',
+    company: 'Prosegur · Facilito S.A.',
     position: 'Senior Software Engineer',
     period: { start: '2024-04', end: null },
     description:
-      'Liderazgo técnico en supervisión de tareas y definición de buenas prácticas. Implementación de funcionalidades en Angular, NestJS y .NET 7. Aseguramiento de calidad de código, eficiencia en despliegues e integración frontend-backend.',
-    techStack: ['Angular', 'NestJS', '.NET 7', 'TypeScript', 'Azure DevOps'],
+      'Lideré la migración de sistemas legados (.NET Framework) a Angular + .NET Core 7 aplicando ingeniería inversa sobre binarios compilados. Optimicé reportes críticos reduciendo tiempos de carga de 10 min a 1 min (-90%). Implementé pipeline CI/CD con Azure DevOps, Docker y Azure Container Apps. Diseñé autenticación federada con Active Directory y Microsoft Entra ID.',
+    techStack: ['Angular', 'NestJS', '.NET 7', 'Docker', 'Azure DevOps', 'Azure Container Apps'],
     location: 'Guayaquil, Ecuador',
   },
   {
     id: 'exp-2',
-    company: 'Facilito S.A.',
+    company: 'Prosegur · Facilito S.A.',
     position: 'Software Engineer',
     period: { start: '2022-07', end: '2024-04' },
     description:
-      'Desarrollo full-stack de sistemas Onboarding, Portal Pagos y Facilito Web. Optimicé el proceso de adhesión de comercios de 2h a 15min. Migración a Angular + .NET 6 logrando un sistema 30% más rápido. Implementé pipelines CI/CD reduciendo despliegues de 1h a 10min.',
+      'Diseñé el sistema de Onboarding de comercios, reduciendo el tiempo de registro de 2 horas a 15 minutos (-87%). Lideré la migración de Facilito Web a Angular + .NET 6, logrando un sistema 30% más rápido. Implementé pipelines CI/CD reduciendo despliegues de 1 hora a 10 minutos. Integré servicios CISLATAM (Western Union).',
     techStack: ['Angular', '.NET 6', 'SQL Server', 'Azure DevOps', 'CI/CD'],
     location: 'Guayaquil, Ecuador',
   },
   {
     id: 'exp-3',
-    company: 'AITEC Instituto Superior Universitario Almirante Illingworth',
+    company: 'AITEC Instituto Superior Universitario',
     position: 'Docente de Desarrollo Móvil',
-    period: { start: '2024-06', end: '2024-08' },
+    period: { start: '2024-06', end: '2024-09' },
     description:
-      'Impartí clases sobre desarrollo móvil con Ionic y Angular, con enfoque práctico basado en proyectos. Guié la creación de aplicaciones CRUD con consumo de APIs públicas.',
-    techStack: ['Ionic', 'Angular', 'TypeScript'],
+      'Impartí el curso de desarrollo móvil con Ionic y Angular a nivel tecnológico superior, con enfoque práctico basado en proyectos reales. Guié la construcción de aplicaciones CRUD con consumo de APIs REST y realicé revisiones de código personalizadas.',
+    techStack: ['Ionic', 'Angular', 'TypeScript', 'REST APIs'],
     location: 'Guayaquil, Ecuador',
   },
   {
@@ -53,8 +53,8 @@ export const experiences: Experience[] = [
     position: 'Software Developer',
     period: { start: '2021-01', end: '2022-07' },
     description:
-      'Desarrollo del sistema de solicitudes de crédito y adhesión de socios. Automaticé la adhesión de socios reduciendo el proceso de 3-4h a 20min. Desarrollé aprobación web y créditos móvil reduciendo trámites de 6h a 1h. Creé pipelines CI/CD y documenté APIs con Swagger.',
-    techStack: ['Angular', 'ASP.NET Web API', '.NET', 'SQL Server', 'Swagger'],
+      'Desarrollé el sistema de solicitudes de crédito y adhesión de socios. Construí la app móvil institucional reduciendo la adhesión de socios de 3-4 horas a 20 minutos. Implementé el módulo de aprobación de créditos web y móvil, reduciendo el trámite de 6 horas a 1 hora. Configuré pipelines CI/CD y documenté APIs REST con Swagger.',
+    techStack: ['Angular', '.NET', 'SQL Server', 'Ionic', 'Swagger', 'CI/CD'],
     location: 'Guayaquil, Ecuador',
   },
   {
@@ -63,19 +63,9 @@ export const experiences: Experience[] = [
     position: 'Front-End Developer',
     period: { start: '2020-10', end: '2022-07' },
     description:
-      'Desarrollo de la app móvil TendaGo en Flutter y del administrador web Service Broker. Diseño de prototipos en Figma para presentaciones a clientes. Contribución al sitio corporativo binasystem.com con principios UX/UI modernos.',
-    techStack: ['Angular', 'Flutter', 'Azure DevOps', 'Figma', 'TypeScript'],
+      'Participé en el desarrollo de la app móvil TendaGo en Flutter y del administrador web Service Broker. Diseñé prototipos de interfaces móviles en Figma para presentaciones a clientes. Contribuí al desarrollo del sitio corporativo binasystem.com aplicando principios UX/UI modernos.',
+    techStack: ['Angular', 'Flutter', 'Figma', 'Azure DevOps', 'TypeScript'],
     location: 'Guayaquil, Ecuador',
-  },
-  {
-    id: 'exp-6',
-    company: 'Profesional Independiente',
-    position: 'Desarrollador de Software',
-    period: { start: '2019-12', end: null },
-    description:
-      'Desarrollo de aplicaciones web y móviles para diversos clientes. Proyectos freelance incluyendo sistemas web, aplicaciones móviles y soluciones a medida.',
-    techStack: ['Angular', 'Ionic', 'NestJS', 'Node.js', 'Firebase'],
-    location: 'Ecuador',
   },
 ];
 
@@ -86,24 +76,18 @@ export const education: Education[] = [
     degree: 'Maestría en Transformación Digital',
     period: { start: '2025', end: '2027' },
     description:
-      'Doble titulación internacional. Gestión de proyectos de TI, Big Data, Seguridad de la Información y Planificación Estratégica. Enfoque en liderazgo de equipos distribuidos y experiencia de cliente (CX).',
+      'Doble titulación internacional. Gestión de proyectos de TI, Big Data, Seguridad de la Información y Planificación Estratégica.',
   },
   {
     id: 'edu-2',
     institution: 'Universidad ECOTEC',
-    degree: 'Ingeniero en Sistemas – Ingeniería de Software',
+    degree: 'Ingeniero en Sistemas',
     period: { start: '2017', end: '2022' },
   },
   {
     id: 'edu-3',
     institution: 'Kaplan – Canadá',
-    degree: 'Curso Intensivo de Inglés – Certificado Nivel B1',
+    degree: 'Curso Intensivo de Inglés – Nivel B1',
     period: { start: '2024', end: '2024' },
-  },
-  {
-    id: 'edu-4',
-    institution: 'Liceo Panamericano',
-    degree: 'Bachillerato',
-    period: { start: '2011', end: '2017' },
   },
 ];
