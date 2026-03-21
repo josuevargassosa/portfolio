@@ -60,15 +60,20 @@
     "subtitle": "Agendemos una Reunión",
     "email": "O escríbeme directamente a",
     "consultation": {
-      "title": "Consultoría / Proyecto",
-      "description": "Hablemos sobre tu proyecto, necesidades técnicas o colaboración freelance.",
+      "title": "Consultoría Técnica",
+      "description": "Cuéntame sobre tu proyecto, stack actual o reto técnico. Te doy mi perspectiva sin compromiso.",
       "duration": "30 minutos"
     },
     "opportunity": {
-      "title": "Oportunidad Laboral",
-      "description": "Conversemos sobre la posición, el equipo y cómo puedo contribuir.",
+      "title": "Abierto a Ofertas",
+      "description": "¿Buscas un Senior Engineer? Hablemos sobre la posición, cultura del equipo y cómo puedo aportar.",
       "duration": "20 minutos"
     }
+  },
+  "footer": {
+    "tagline": "Ingeniero Full Stack Senior construyendo productos digitales sólidos.",
+    "available": "Disponible para proyectos",
+    "rights": "Todos los derechos reservados."
   },
   "whatsapp": {
     "cta": "¿Iniciamos?",

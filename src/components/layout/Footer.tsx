@@ -1,3 +1,6 @@
+'use client';
+
+import { useTranslations } from 'next-intl';
 import { Linkedin, Github, Mail } from 'lucide-react';
 import { socialLinks } from '@/data/social-links';
 
@@ -9,6 +12,7 @@ const iconMap: Record<string, React.ElementType> = {
 export function Footer() {
   const year = new Date().getFullYear();
   const version = process.env.NEXT_PUBLIC_APP_VERSION || '1.0.0';
+  const t = useTranslations('footer');
 
   return (
     <footer className="border-t border-border/50 py-12 px-6 lg:px-52">
@@ -17,10 +21,10 @@ export function Footer() {
           <div>
             <p className="text-lg font-bold font-heading mb-1">Josue Vargas</p>
             <p className="text-sm text-muted-foreground max-w-xs">
-              Senior Full Stack Engineer building solid digital products.
+              {t('tagline')}
             </p>
             <span className="inline-block mt-3 text-xs font-medium px-2.5 py-1 rounded-full bg-green-500/10 text-green-500 border border-green-500/20">
-              Available for projects
+              {t('available')}
             </span>
           </div>
 
@@ -51,7 +55,7 @@ export function Footer() {
         </div>
 
         <div className="flex flex-col sm:flex-row items-center justify-between gap-2 pt-6 border-t border-border/30 text-xs text-muted-foreground">
-          <p>&copy; {year} Josue Vargas. All rights reserved.</p>
+          <p>&copy; {year} Josue Vargas. {t('rights')}</p>
           <p>v{version}</p>
         </div>
       </div>

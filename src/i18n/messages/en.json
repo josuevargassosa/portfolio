@@ -60,15 +60,20 @@
     "subtitle": "Book a Meeting",
     "email": "Or reach me directly at",
     "consultation": {
-      "title": "Project Consultation",
-      "description": "Let's discuss your project, technical needs, or freelance collaboration.",
+      "title": "Technical Consultation",
+      "description": "Tell me about your project, current stack, or technical challenge. No strings attached.",
       "duration": "30 minutes"
     },
     "opportunity": {
-      "title": "Career Opportunity",
-      "description": "Let's talk about the role, team, and how I can contribute.",
+      "title": "Open to Opportunities",
+      "description": "Looking for a Senior Engineer? Let's talk about the role, team culture, and how I can contribute.",
       "duration": "20 minutes"
     }
+  },
+  "footer": {
+    "tagline": "Senior Full Stack Engineer building solid digital products.",
+    "available": "Available for projects",
+    "rights": "All rights reserved."
   },
   "whatsapp": {
     "cta": "Let's start!",
