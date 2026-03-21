@@ -32,7 +32,10 @@ html {
   --animate-logo-pulse: logo-pulse 2s ease-in-out infinite;
   --animate-fade-in: fade-in 0.4s ease-out;
   --animate-loading-bar: loading-bar 1.2s ease-in-out infinite;
-  --animate-scroll-code: scroll-code 60s linear infinite;
+  --animate-mesh-1: mesh-1 20s ease-in-out infinite;
+  --animate-mesh-2: mesh-2 25s ease-in-out infinite;
+  --animate-mesh-3: mesh-3 22s ease-in-out infinite;
+  --animate-mesh-4: mesh-4 18s ease-in-out infinite;
 
   @keyframes wave {
     0% {
@@ -93,13 +96,27 @@ html {
     }
   }
 
-  @keyframes scroll-code {
-    0% {
-      transform: translateY(0);
-    }
-    100% {
-      transform: translateY(-50%);
-    }
+  @keyframes mesh-1 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(5%, 10%) scale(1.1); }
+    66% { transform: translate(-3%, -5%) scale(0.95); }
+  }
+
+  @keyframes mesh-2 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(-8%, 5%) scale(1.05); }
+    66% { transform: translate(4%, -8%) scale(1.1); }
+  }
+
+  @keyframes mesh-3 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(10%, -5%) scale(1.15); }
+  }
+
+  @keyframes mesh-4 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    40% { transform: translate(-6%, 8%) scale(1.1); }
+    80% { transform: translate(3%, -3%) scale(0.9); }
   }
 }
 
