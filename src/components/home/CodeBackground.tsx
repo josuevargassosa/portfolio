@@ -22,12 +22,21 @@ interface DustParticle {
   size: number;
 }
 
+interface Ripple {
+  x: number;
+  y: number;
+  radius: number;
+  maxRadius: number;
+  life: number;
+}
+
 export function CodeBackground() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const mouseRef = useRef({ x: -1000, y: -1000 });
   const prevMouseRef = useRef({ x: -1000, y: -1000 });
   const starsRef = useRef<Star[]>([]);
   const dustRef = useRef<DustParticle[]>([]);
+  const ripplesRef = useRef<Ripple[]>([]);
   const rafRef = useRef<number>(0);
 
   useEffect(() => {
@@ -149,6 +158,22 @@ export function CodeBackground() {
           }
         }
 
+        // Ripple shockwave push
+        for (const ripple of ripplesRef.current) {
+          const rdx = star.x - ripple.x;
+          const rdy = star.y - ripple.y;
+          const rdist = Math.sqrt(rdx * rdx + rdy * rdy);
+          const ringDist = Math.abs(rdist - ripple.radius);
+          const ringWidth = 60;
+
+          if (ringDist < ringWidth && rdist > 0) {
+            const rippleForce = (1 - ringDist / ringWidth) * ripple.life * 25;
+            drawX += (rdx / rdist) * rippleForce;
+            drawY += (rdy / rdist) * rippleForce;
+            warpBoost = Math.max(warpBoost, (1 - ringDist / ringWidth) * ripple.life * 0.5);
+          }
+        }
+
         const size = star.baseSize * (0.4 + star.z * 0.6) + warpBoost * 2;
 
         // Higher base opacity for more visible stars
@@ -230,6 +255,28 @@ export function CodeBackground() {
         ctx.fill();
       }
 
+      // --- Update and draw ripples ---
+      const ripples = ripplesRef.current;
+      for (let i = ripples.length - 1; i >= 0; i--) {
+        const r = ripples[i];
+        r.radius += 4;
+        r.life -= 0.015;
+
+        if (r.life <= 0 || r.radius > r.maxRadius) {
+          ripples.splice(i, 1);
+          continue;
+        }
+
+        // Draw ripple ring
+        ctx.beginPath();
+        ctx.arc(r.x, r.y, r.radius, 0, Math.PI * 2);
+        ctx.strokeStyle = isDark
+          ? `rgba(120,160,255,${r.life * 0.15})`
+          : `rgba(60,90,200,${r.life * 0.08})`;
+        ctx.lineWidth = 1.5 * r.life;
+        ctx.stroke();
+      }
+
       // Cursor glow
       if (mouseActive) {
         const gradient = ctx.createRadialGradient(mx, my, 0, mx, my, warpRadius);
@@ -255,6 +302,25 @@ export function CodeBackground() {
       }
     }
 
+    function onTouchStart(e: TouchEvent) {
+      const touch = e.touches[0];
+      if (touch) {
+        mouseRef.current = { x: touch.clientX, y: touch.clientY };
+        // Create ripple shockwave
+        ripplesRef.current.push({
+          x: touch.clientX,
+          y: touch.clientY,
+          radius: 0,
+          maxRadius: 300,
+          life: 1,
+        });
+        // Burst of dust particles
+        for (let i = 0; i < 8; i++) {
+          spawnDust(touch.clientX, touch.clientY);
+        }
+      }
+    }
+
     function onTouchEnd() {
       mouseRef.current = { x: -1000, y: -1000 };
     }
@@ -268,6 +334,7 @@ export function CodeBackground() {
 
     window.addEventListener('resize', resize);
     window.addEventListener('mousemove', onMouseMove, { passive: true });
+    window.addEventListener('touchstart', onTouchStart, { passive: true });
     window.addEventListener('touchmove', onTouchMove, { passive: true });
     window.addEventListener('touchend', onTouchEnd);
     document.addEventListener('mouseleave', onMouseLeave);
@@ -276,6 +343,7 @@ export function CodeBackground() {
       cancelAnimationFrame(rafRef.current);
       window.removeEventListener('resize', resize);
       window.removeEventListener('mousemove', onMouseMove);
+      window.removeEventListener('touchstart', onTouchStart);
       window.removeEventListener('touchmove', onTouchMove);
       window.removeEventListener('touchend', onTouchEnd);
       document.removeEventListener('mouseleave', onMouseLeave);
