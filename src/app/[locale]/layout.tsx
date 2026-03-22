@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     default: 'Josue Vargas | Senior Software Engineer',
     template: '%s | Josue Vargas'
   },
-  description: 'Senior Software Engineer con +5 años de experiencia en Angular, NestJS, .NET, React y Flutter. Especializado en arquitectura limpia, CI/CD y productos digitales escalables.',
+  description: 'Senior Software Engineer con +6 años de experiencia en Angular, NestJS, .NET, React y Flutter. Especializado en arquitectura limpia, CI/CD y productos digitales escalables.',
   keywords: [
     'Senior Software Engineer',
     'Full Stack Developer',
@@ -59,13 +59,13 @@ export const metadata: Metadata = {
     alternateLocale: 'en_US',
     url: 'https://josuevargassosa.com',
     title: 'Josue Vargas | Senior Software Engineer',
-    description: 'Senior Software Engineer · Angular, NestJS, .NET, React, Flutter · +5 años construyendo productos digitales escalables.',
+    description: 'Senior Software Engineer · Angular, NestJS, .NET, React, Flutter · +6 años construyendo productos digitales escalables.',
     siteName: 'Josue Vargas',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Josue Vargas | Senior Software Engineer',
-    description: 'Senior Software Engineer · Angular, NestJS, .NET, React, Flutter · +5 años construyendo productos digitales escalables.',
+    description: 'Senior Software Engineer · Angular, NestJS, .NET, React, Flutter · +6 años construyendo productos digitales escalables.',
   },
   robots: {
     index: true,

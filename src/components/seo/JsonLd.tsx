@@ -4,7 +4,7 @@ export function JsonLd() {
     '@type': 'Person',
     name: 'Josue Vargas',
     jobTitle: 'Senior Software Engineer',
-    description: 'Senior Software Engineer con más de 5 años de experiencia liderando desarrollo con Angular, NestJS, .NET y arquitectura limpia.',
+    description: 'Senior Software Engineer con más de 6 años de experiencia liderando desarrollo con Angular, NestJS, .NET y arquitectura limpia.',
     url: 'https://josuevargassosa.com',
     image: 'https://josuevargassosa.com/images/josueLogo.png',
     address: {
