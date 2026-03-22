@@ -37,10 +37,10 @@ export function ResumePreview() {
         {latest.map((exp) => (
           <TimelineItem
             key={exp.id}
-            title={exp.position}
-            subtitle={exp.company}
+            title={t(`experiences.${exp.id}.position`)}
+            subtitle={t(`experiences.${exp.id}.company`)}
             period={formatPeriod(exp.period.start, exp.period.end, t('present'))}
-            description={exp.description}
+            description={t(`experiences.${exp.id}.description`)}
             tags={exp.techStack}
           />
         ))}

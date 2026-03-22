@@ -61,11 +61,11 @@ export function ProjectCard({ project }: { project: Project }) {
 
       <div className="aspect-video bg-muted flex items-center justify-center text-muted-foreground text-sm">
         {project.thumbnail.includes('placeholder') ? (
-          <span className="uppercase tracking-wider">{project.title}</span>
+          <span className="uppercase tracking-wider">{t(`items.${project.id}.title`)}</span>
         ) : (
           <img
             src={project.thumbnail}
-            alt={project.title}
+            alt={t(`items.${project.id}.title`)}
             className="w-full h-full object-cover"
           />
         )}
@@ -77,9 +77,9 @@ export function ProjectCard({ project }: { project: Project }) {
             {t('featured')}
           </span>
         )}
-        <h3 className="text-lg font-bold font-heading mt-1 mb-2">{project.title}</h3>
+        <h3 className="text-lg font-bold font-heading mt-1 mb-2">{t(`items.${project.id}.title`)}</h3>
         <p className="text-sm text-muted-foreground leading-relaxed mb-4">
-          {project.description}
+          {t(`items.${project.id}.description`)}
         </p>
 
         <div className="flex flex-wrap gap-2 mb-4">

@@ -38,7 +38,33 @@
     "viewProject": "View Project",
     "viewCode": "View Code",
     "featured": "Featured",
-    "viewAll": "View All Projects"
+    "viewAll": "View All Projects",
+    "items": {
+      "menudigital": {
+        "title": "MenuDigital.ec",
+        "description": "Digital menu SaaS for restaurants in Ecuador. Monorepo with landing page, admin panel (dashboard, analytics, multi-location, roles) and public menus with 3 templates. WhatsApp orders with no commissions."
+      },
+      "invitacion-boda": {
+        "title": "Digital Wedding Invitation",
+        "description": "Interactive web invitation with background music, countdown, photo gallery, itinerary, gift registry, Google Calendar integration and RSVP form."
+      },
+      "licoreria": {
+        "title": "Liquor Store Web System",
+        "description": "Progressive web app (PWA) for inventory management and sales of a liquor store with offline support."
+      },
+      "control-lectura": {
+        "title": "Reading Control System",
+        "description": "Web platform for tracking and managing readings with API documentation and cloud file storage."
+      },
+      "app-eventos": {
+        "title": "Events App",
+        "description": "Mobile application for event management and browsing with authentication and real-time data."
+      },
+      "portfolio": {
+        "title": "Portfolio Website",
+        "description": "Professional portfolio with multilingual support, dark/light theme and animations."
+      }
+    }
   },
   "resume": {
     "title": "Resume",
@@ -47,7 +73,49 @@
     "experience": "Professional Experience",
     "education": "Education",
     "present": "Present",
-    "viewAll": "View Full Resume"
+    "viewAll": "View Full Resume",
+    "experiences": {
+      "exp-1": {
+        "company": "Prosegur · Facilito S.A.",
+        "position": "Senior Software Engineer",
+        "description": "Led migration of legacy systems (.NET Framework) to Angular + .NET Core 7 using reverse engineering on compiled binaries. Optimized critical reports reducing load times from 10 min to 1 min (-90%). Implemented CI/CD pipeline with Azure DevOps, Docker and Azure Container Apps. Designed federated authentication with Active Directory and Microsoft Entra ID."
+      },
+      "exp-2": {
+        "company": "Prosegur · Facilito S.A.",
+        "position": "Software Engineer",
+        "description": "Designed the merchant Onboarding system, reducing registration time from 2 hours to 15 minutes (-87%). Led migration of Facilito Web to Angular + .NET 6, achieving a 30% faster system. Implemented CI/CD pipelines reducing deployments from 1 hour to 10 minutes. Integrated CISLATAM services (Western Union)."
+      },
+      "exp-3": {
+        "company": "AITEC Instituto Superior Universitario",
+        "position": "Mobile Development Instructor",
+        "description": "Taught mobile development course with Ionic and Angular at higher education level, with hands-on approach based on real projects. Guided the construction of CRUD applications consuming REST APIs and performed personalized code reviews."
+      },
+      "exp-4": {
+        "company": "Fondo de Cesantía CTE",
+        "position": "Software Developer",
+        "description": "Developed the credit application and member enrollment system. Built the institutional mobile app reducing member enrollment from 3-4 hours to 20 minutes. Implemented the web and mobile credit approval module, reducing processing from 6 hours to 1 hour."
+      },
+      "exp-5": {
+        "company": "Binasystem",
+        "position": "Front-End Developer",
+        "description": "Participated in developing the TendaGo mobile app in Flutter and the Service Broker web admin. Designed mobile interface prototypes in Figma for client presentations."
+      }
+    },
+    "educations": {
+      "edu-1": {
+        "institution": "FUNIBER – UNINI México / UNEATLANTICO España",
+        "degree": "Master's in Digital Transformation",
+        "description": "Dual international degree. IT Project Management, Big Data, Information Security and Strategic Planning."
+      },
+      "edu-2": {
+        "institution": "Universidad ECOTEC",
+        "degree": "Systems Engineer"
+      },
+      "edu-3": {
+        "institution": "Kaplan – Canada",
+        "degree": "Intensive English Course – B1 Level"
+      }
+    }
   },
   "certificates": {
     "title": "Certificates",

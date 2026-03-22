@@ -61,10 +61,10 @@ export function ResumeFullPage() {
           {experiences.map((exp) => (
             <TimelineItem
               key={exp.id}
-              title={exp.position}
-              subtitle={exp.company}
+              title={t(`experiences.${exp.id}.position`)}
+              subtitle={t(`experiences.${exp.id}.company`)}
               period={formatPeriod(exp.period.start, exp.period.end, t('present'))}
-              description={exp.description}
+              description={t(`experiences.${exp.id}.description`)}
               tags={exp.techStack}
             />
           ))}
@@ -81,10 +81,10 @@ export function ResumeFullPage() {
           {education.map((edu) => (
             <TimelineItem
               key={edu.id}
-              title={edu.degree}
-              subtitle={edu.institution}
+              title={t(`educations.${edu.id}.degree`)}
+              subtitle={t(`educations.${edu.id}.institution`)}
               period={`${edu.period.start} - ${edu.period.end}`}
-              description={edu.description}
+              description={t.has(`educations.${edu.id}.description`) ? t(`educations.${edu.id}.description`) : undefined}
             />
           ))}
         </div>

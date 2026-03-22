@@ -38,7 +38,33 @@
     "viewProject": "Ver Proyecto",
     "viewCode": "Ver Código",
     "featured": "Destacado",
-    "viewAll": "Ver Todos los Proyectos"
+    "viewAll": "Ver Todos los Proyectos",
+    "items": {
+      "menudigital": {
+        "title": "MenuDigital.ec",
+        "description": "SaaS de menú digital para restaurantes en Ecuador. Monorepo con landing, panel admin (dashboard, analytics, multi-sucursal, roles) y menús públicos con 3 templates. Pedidos por WhatsApp sin comisiones."
+      },
+      "invitacion-boda": {
+        "title": "Invitación Digital de Boda",
+        "description": "Invitación web interactiva con música ambiental, cuenta regresiva, galería de fotos, itinerario, mesa de regalos, integración con Google Calendar y confirmación de asistencia."
+      },
+      "licoreria": {
+        "title": "Sistema Web Licorería",
+        "description": "Aplicación web progresiva (PWA) para la gestión de inventario y ventas de una licorería con soporte offline."
+      },
+      "control-lectura": {
+        "title": "Sistema Control de Lectura",
+        "description": "Plataforma web para el control y seguimiento de lecturas con documentación de API y almacenamiento de archivos en la nube."
+      },
+      "app-eventos": {
+        "title": "App de Eventos",
+        "description": "Aplicación móvil para la gestión y consulta de eventos con autenticación y datos en tiempo real."
+      },
+      "portfolio": {
+        "title": "Portafolio Web",
+        "description": "Portafolio profesional con soporte multilenguaje, tema oscuro/claro y animaciones."
+      }
+    }
   },
   "resume": {
     "title": "Currículum",
@@ -47,7 +73,49 @@
     "experience": "Experiencia Profesional",
     "education": "Educación",
     "present": "Actualidad",
-    "viewAll": "Ver Currículum Completo"
+    "viewAll": "Ver Currículum Completo",
+    "experiences": {
+      "exp-1": {
+        "company": "Prosegur · Facilito S.A.",
+        "position": "Senior Software Engineer",
+        "description": "Lideré la migración de sistemas legados (.NET Framework) a Angular + .NET Core 7 aplicando ingeniería inversa sobre binarios compilados. Optimicé reportes críticos reduciendo tiempos de carga de 10 min a 1 min (-90%). Implementé pipeline CI/CD con Azure DevOps, Docker y Azure Container Apps. Diseñé autenticación federada con Active Directory y Microsoft Entra ID."
+      },
+      "exp-2": {
+        "company": "Prosegur · Facilito S.A.",
+        "position": "Software Engineer",
+        "description": "Diseñé el sistema de Onboarding de comercios, reduciendo el tiempo de registro de 2 horas a 15 minutos (-87%). Lideré la migración de Facilito Web a Angular + .NET 6, logrando un sistema 30% más rápido. Implementé pipelines CI/CD reduciendo despliegues de 1 hora a 10 minutos. Integré servicios CISLATAM (Western Union)."
+      },
+      "exp-3": {
+        "company": "AITEC Instituto Superior Universitario",
+        "position": "Docente de Desarrollo Móvil",
+        "description": "Impartí el curso de desarrollo móvil con Ionic y Angular a nivel tecnológico superior, con enfoque práctico basado en proyectos reales. Guié la construcción de aplicaciones CRUD con consumo de APIs REST y realicé revisiones de código personalizadas."
+      },
+      "exp-4": {
+        "company": "Fondo de Cesantía CTE",
+        "position": "Software Developer",
+        "description": "Desarrollé el sistema de solicitudes de crédito y adhesión de socios. Construí la app móvil institucional reduciendo la adhesión de socios de 3-4 horas a 20 minutos. Implementé el módulo de aprobación de créditos web y móvil, reduciendo el trámite de 6 horas a 1 hora."
+      },
+      "exp-5": {
+        "company": "Binasystem",
+        "position": "Front-End Developer",
+        "description": "Participé en el desarrollo de la app móvil TendaGo en Flutter y del administrador web Service Broker. Diseñé prototipos de interfaces móviles en Figma para presentaciones a clientes."
+      }
+    },
+    "educations": {
+      "edu-1": {
+        "institution": "FUNIBER – UNINI México / UNEATLANTICO España",
+        "degree": "Maestría en Transformación Digital",
+        "description": "Doble titulación internacional. Gestión de proyectos de TI, Big Data, Seguridad de la Información y Planificación Estratégica."
+      },
+      "edu-2": {
+        "institution": "Universidad ECOTEC",
+        "degree": "Ingeniero en Sistemas"
+      },
+      "edu-3": {
+        "institution": "Kaplan – Canadá",
+        "degree": "Curso Intensivo de Inglés – Nivel B1"
+      }
+    }
   },
   "certificates": {
     "title": "Certificados",
