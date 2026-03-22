@@ -2,55 +2,50 @@
 
 import { useEffect, useRef } from 'react';
 
-interface Dot {
-  baseX: number;
-  baseY: number;
+interface Star {
   x: number;
   y: number;
-  offsetX: number;
-  offsetY: number;
-  speed: number;
-  phase: number;
-  radius: number;
-  glow: number;
+  z: number;
+  baseSize: number;
+  twinkleSpeed: number;
+  twinklePhase: number;
+  brightness: number;
 }
 
 export function CodeBackground() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const mouseRef = useRef({ x: -1000, y: -1000 });
-  const dotsRef = useRef<Dot[]>([]);
+  const starsRef = useRef<Star[]>([]);
   const rafRef = useRef<number>(0);
 
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
-
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
-    const gap = 45;
-    const interactionRadius = 160;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
-    function createDots() {
+    const starCount = 300;
+    const warpRadius = 180;
+
+    function createStars() {
       if (!canvas) return;
-      const dots: Dot[] = [];
-      for (let x = gap / 2; x < canvas.width; x += gap) {
-        for (let y = gap / 2; y < canvas.height; y += gap) {
-          dots.push({
-            baseX: x,
-            baseY: y,
-            x,
-            y,
-            offsetX: 0,
-            offsetY: 0,
-            speed: 0.3 + Math.random() * 0.7,
-            phase: Math.random() * Math.PI * 2,
-            radius: 0.8 + Math.random() * 0.4,
-            glow: 0,
-          });
-        }
+      const w = window.innerWidth;
+      const h = window.innerHeight;
+      const stars: Star[] = [];
+      for (let i = 0; i < starCount; i++) {
+        stars.push({
+          x: Math.random() * w,
+          y: Math.random() * h,
+          z: Math.random(), // 0 = far, 1 = near
+          baseSize: 0.3 + Math.random() * 1.5,
+          twinkleSpeed: 0.5 + Math.random() * 2,
+          twinklePhase: Math.random() * Math.PI * 2,
+          brightness: 0.3 + Math.random() * 0.7,
+        });
       }
-      dotsRef.current = dots;
+      starsRef.current = stars;
     }
 
     function resize() {
@@ -60,88 +55,110 @@ export function CodeBackground() {
       canvas.height = window.innerHeight * dpr;
       canvas.style.width = window.innerWidth + 'px';
       canvas.style.height = window.innerHeight + 'px';
-      ctx!.scale(dpr, dpr);
-      createDots();
+      ctx!.setTransform(dpr, 0, 0, dpr, 0, 0);
+      createStars();
     }
 
     let time = 0;
 
     function draw() {
       if (!canvas || !ctx) return;
-      const w = canvas.width / (Math.min(window.devicePixelRatio || 1, 2));
-      const h = canvas.height / (Math.min(window.devicePixelRatio || 1, 2));
+      const w = window.innerWidth;
+      const h = window.innerHeight;
 
       ctx.clearRect(0, 0, w, h);
-      time += 0.008;
+      time += 0.01;
 
       const isDark = document.documentElement.classList.contains('dark');
       const mx = mouseRef.current.x;
       const my = mouseRef.current.y;
+      const mouseActive = mx > -500;
 
-      for (const dot of dotsRef.current) {
-        // Floating micro-movement
-        dot.offsetX = Math.sin(time * dot.speed + dot.phase) * 3;
-        dot.offsetY = Math.cos(time * dot.speed * 0.8 + dot.phase + 1) * 3;
-        dot.x = dot.baseX + dot.offsetX;
-        dot.y = dot.baseY + dot.offsetY;
-
-        // Mouse interaction
-        const dx = mx - dot.x;
-        const dy = my - dot.y;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-
-        // Target glow based on distance
-        const targetGlow = dist < interactionRadius
-          ? Math.pow(1 - dist / interactionRadius, 1.5)
-          : 0;
-
-        // Smooth trail fade (glow decays slowly)
-        dot.glow += (targetGlow - dot.glow) * 0.08;
-
-        // Parallax push away from mouse
-        if (dist < interactionRadius && dist > 0) {
-          const pushStrength = (1 - dist / interactionRadius) * 8;
-          dot.x -= (dx / dist) * pushStrength;
-          dot.y -= (dy / dist) * pushStrength;
+      for (const star of starsRef.current) {
+        // Slow drift upward (space movement)
+        star.y -= 0.08 * (0.5 + star.z * 0.5);
+        if (star.y < -5) {
+          star.y = h + 5;
+          star.x = Math.random() * w;
         }
 
-        // Draw
-        const baseOpacity = isDark ? 0.12 : 0.08;
-        const glowOpacity = dot.glow * (isDark ? 0.9 : 0.6);
-        const opacity = baseOpacity + glowOpacity;
-        const radius = dot.radius + dot.glow * 2.5;
+        // Twinkle
+        const twinkle = 0.6 + 0.4 * Math.sin(time * star.twinkleSpeed + star.twinklePhase);
 
-        if (dot.glow > 0.01) {
-          // Glow halo
+        // Warp effect around mouse
+        let drawX = star.x;
+        let drawY = star.y;
+        let warpBoost = 0;
+
+        if (mouseActive) {
+          const dx = star.x - mx;
+          const dy = star.y - my;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+
+          if (dist < warpRadius && dist > 0) {
+            const force = Math.pow(1 - dist / warpRadius, 2);
+            // Push outward from cursor
+            const pushStrength = force * 40 * (0.5 + star.z);
+            drawX += (dx / dist) * pushStrength;
+            drawY += (dy / dist) * pushStrength;
+            warpBoost = force;
+          }
+        }
+
+        // Size based on depth + warp boost
+        const size = star.baseSize * (0.4 + star.z * 0.6) + warpBoost * 2;
+
+        // Opacity
+        const baseAlpha = isDark
+          ? star.brightness * 0.25 * twinkle
+          : star.brightness * 0.12 * twinkle;
+        const alpha = baseAlpha + warpBoost * (isDark ? 0.6 : 0.3);
+
+        // Color — neutral by default, blue shift near cursor
+        if (warpBoost > 0.05) {
+          // Blue-white glow near cursor
+          const glow = warpBoost;
+
+          // Halo
           const gradient = ctx.createRadialGradient(
-            dot.x, dot.y, 0,
-            dot.x, dot.y, radius * 4
+            drawX, drawY, 0,
+            drawX, drawY, size * 5
           );
-          const glowColor = isDark
-            ? `rgba(99,133,255,${dot.glow * 0.15})`
-            : `rgba(59,82,246,${dot.glow * 0.08})`;
-          gradient.addColorStop(0, glowColor);
+          gradient.addColorStop(0, `rgba(120,160,255,${glow * (isDark ? 0.12 : 0.06)})`);
           gradient.addColorStop(1, 'transparent');
           ctx.beginPath();
-          ctx.arc(dot.x, dot.y, radius * 4, 0, Math.PI * 2);
+          ctx.arc(drawX, drawY, size * 5, 0, Math.PI * 2);
           ctx.fillStyle = gradient;
           ctx.fill();
-        }
 
-        // Dot core
-        ctx.beginPath();
-        ctx.arc(dot.x, dot.y, radius, 0, Math.PI * 2);
-
-        if (dot.glow > 0.05) {
-          // Interpolate from neutral to navy blue
-          const r = isDark ? Math.round(180 + dot.glow * 75) : Math.round(40 + dot.glow * 50);
-          const g = isDark ? Math.round(190 + dot.glow * 50) : Math.round(60 + dot.glow * 30);
-          const b = isDark ? 255 : Math.round(180 + dot.glow * 60);
-          ctx.fillStyle = `rgba(${r},${g},${b},${opacity})`;
+          // Star core with blue shift
+          const b = Math.round(200 + glow * 55);
+          const g = Math.round(180 + glow * 40);
+          ctx.beginPath();
+          ctx.arc(drawX, drawY, size, 0, Math.PI * 2);
+          ctx.fillStyle = isDark
+            ? `rgba(${g},${g + 20},${b},${alpha})`
+            : `rgba(${Math.round(30 + glow * 40)},${Math.round(50 + glow * 30)},${Math.round(150 + glow * 80)},${alpha})`;
+          ctx.fill();
         } else {
-          const c = isDark ? '255,255,255' : '0,0,0';
-          ctx.fillStyle = `rgba(${c},${opacity})`;
+          // Normal star
+          ctx.beginPath();
+          ctx.arc(drawX, drawY, size, 0, Math.PI * 2);
+          ctx.fillStyle = isDark
+            ? `rgba(255,255,255,${alpha})`
+            : `rgba(0,0,0,${alpha})`;
+          ctx.fill();
         }
+      }
+
+      // Subtle radial glow at cursor position
+      if (mouseActive) {
+        const gradient = ctx.createRadialGradient(mx, my, 0, mx, my, warpRadius);
+        gradient.addColorStop(0, isDark ? 'rgba(80,120,220,0.03)' : 'rgba(60,90,200,0.02)');
+        gradient.addColorStop(1, 'transparent');
+        ctx.beginPath();
+        ctx.arc(mx, my, warpRadius, 0, Math.PI * 2);
+        ctx.fillStyle = gradient;
         ctx.fill();
       }
 
@@ -155,10 +172,6 @@ export function CodeBackground() {
     function onMouseLeave() {
       mouseRef.current = { x: -1000, y: -1000 };
     }
-
-    // Check reduced motion preference
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (prefersReducedMotion) return;
 
     resize();
     draw();
