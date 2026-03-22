@@ -158,19 +158,18 @@ export function CodeBackground() {
           }
         }
 
-        // Ripple shockwave push
+        // Gentle ripple push — stars drift away from tap point
         for (const ripple of ripplesRef.current) {
           const rdx = star.x - ripple.x;
           const rdy = star.y - ripple.y;
           const rdist = Math.sqrt(rdx * rdx + rdy * rdy);
-          const ringDist = Math.abs(rdist - ripple.radius);
-          const ringWidth = 60;
 
-          if (ringDist < ringWidth && rdist > 0) {
-            const rippleForce = (1 - ringDist / ringWidth) * ripple.life * 25;
+          if (rdist < ripple.radius && rdist > 0) {
+            const proximity = 1 - rdist / ripple.radius;
+            const rippleForce = proximity * ripple.life * 8;
             drawX += (rdx / rdist) * rippleForce;
             drawY += (rdy / rdist) * rippleForce;
-            warpBoost = Math.max(warpBoost, (1 - ringDist / ringWidth) * ripple.life * 0.5);
+            warpBoost = Math.max(warpBoost, proximity * ripple.life * 0.3);
           }
         }
 
@@ -255,26 +254,16 @@ export function CodeBackground() {
         ctx.fill();
       }
 
-      // --- Update and draw ripples ---
+      // --- Update ripples (no visible ring, just push force) ---
       const ripples = ripplesRef.current;
       for (let i = ripples.length - 1; i >= 0; i--) {
         const r = ripples[i];
-        r.radius += 4;
-        r.life -= 0.015;
+        r.radius += 2.5;
+        r.life -= 0.01;
 
         if (r.life <= 0 || r.radius > r.maxRadius) {
           ripples.splice(i, 1);
-          continue;
         }
-
-        // Draw ripple ring
-        ctx.beginPath();
-        ctx.arc(r.x, r.y, r.radius, 0, Math.PI * 2);
-        ctx.strokeStyle = isDark
-          ? `rgba(120,160,255,${r.life * 0.15})`
-          : `rgba(60,90,200,${r.life * 0.08})`;
-        ctx.lineWidth = 1.5 * r.life;
-        ctx.stroke();
       }
 
       // Cursor glow
@@ -306,18 +295,13 @@ export function CodeBackground() {
       const touch = e.touches[0];
       if (touch) {
         mouseRef.current = { x: touch.clientX, y: touch.clientY };
-        // Create ripple shockwave
         ripplesRef.current.push({
           x: touch.clientX,
           y: touch.clientY,
           radius: 0,
-          maxRadius: 300,
+          maxRadius: 400,
           life: 1,
         });
-        // Burst of dust particles
-        for (let i = 0; i < 8; i++) {
-          spawnDust(touch.clientX, touch.clientY);
-        }
       }
     }
 
