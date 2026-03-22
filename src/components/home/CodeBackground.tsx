@@ -73,7 +73,8 @@ export function CodeBackground() {
 
     function resize() {
       if (!canvas) return;
-      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      // iOS Safari limits canvas size — cap DPR to avoid blank canvas
+      const dpr = isMobile ? 1 : Math.min(window.devicePixelRatio || 1, 2);
       canvas.width = window.innerWidth * dpr;
       canvas.height = window.innerHeight * dpr;
       canvas.style.width = window.innerWidth + 'px';
@@ -175,10 +176,11 @@ export function CodeBackground() {
 
         const size = star.baseSize * (0.4 + star.z * 0.6) + warpBoost * 2;
 
-        // Higher base opacity for more visible stars
+        // Higher base opacity — extra visible on mobile
+        const mobileBoost = isMobile ? 1.3 : 1;
         const baseAlpha = isDark
-          ? star.brightness * 0.4 * twinkle
-          : star.brightness * 0.18 * twinkle;
+          ? star.brightness * 0.4 * twinkle * mobileBoost
+          : star.brightness * 0.18 * twinkle * mobileBoost;
         const alpha = baseAlpha + warpBoost * (isDark ? 0.6 : 0.35);
 
         if (warpBoost > 0.05) {
