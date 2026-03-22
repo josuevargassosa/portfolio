@@ -38,7 +38,8 @@ export function CodeBackground() {
 
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
-    const starCount = 1500;
+    const isMobile = window.innerWidth < 768;
+    const starCount = isMobile ? 400 : 1500;
     const warpRadius = 180;
     const maxDust = 80;
 
@@ -247,6 +248,17 @@ export function CodeBackground() {
       mouseRef.current = { x: e.clientX, y: e.clientY };
     }
 
+    function onTouchMove(e: TouchEvent) {
+      const touch = e.touches[0];
+      if (touch) {
+        mouseRef.current = { x: touch.clientX, y: touch.clientY };
+      }
+    }
+
+    function onTouchEnd() {
+      mouseRef.current = { x: -1000, y: -1000 };
+    }
+
     function onMouseLeave() {
       mouseRef.current = { x: -1000, y: -1000 };
     }
@@ -256,12 +268,16 @@ export function CodeBackground() {
 
     window.addEventListener('resize', resize);
     window.addEventListener('mousemove', onMouseMove, { passive: true });
+    window.addEventListener('touchmove', onTouchMove, { passive: true });
+    window.addEventListener('touchend', onTouchEnd);
     document.addEventListener('mouseleave', onMouseLeave);
 
     return () => {
       cancelAnimationFrame(rafRef.current);
       window.removeEventListener('resize', resize);
       window.removeEventListener('mousemove', onMouseMove);
+      window.removeEventListener('touchmove', onTouchMove);
+      window.removeEventListener('touchend', onTouchEnd);
       document.removeEventListener('mouseleave', onMouseLeave);
     };
   }, []);
