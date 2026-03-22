@@ -1,7 +1,6 @@
 import dynamic from 'next/dynamic';
 import { Header } from '@/components/layout/Header';
 import { Hero } from '@/components/home/Hero';
-import { CodeBackground } from '@/components/home/CodeBackground';
 import { StatsSection } from '@/components/home/StatsSection';
 import { SocialSidebar } from '@/components/layout/SocialSidebar';
 import { Footer } from '@/components/layout/Footer';
@@ -25,7 +24,6 @@ const ContactSection = dynamic(
 export default function Home() {
   return (
     <>
-      <CodeBackground />
       <Header />
       <SocialSidebar />
       <main className="relative z-10">

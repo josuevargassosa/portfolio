@@ -6,6 +6,7 @@ import type { Metadata } from 'next';
 import {JsonLd} from '@/components/seo/JsonLd';
 import {Analytics} from '@/components/shared/Analytics';
 import {WhatsAppButton} from '@/components/shared/WhatsAppButton';
+import {CodeBackground} from '@/components/home/CodeBackground';
 import '../globals.css';
 
 const inter = Inter({
@@ -97,6 +98,7 @@ export default async function LocaleLayout({
       <body className="font-sans">
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
           <NextIntlClientProvider messages={messages}>
+            <CodeBackground />
             {children}
             <WhatsAppButton />
           </NextIntlClientProvider>
