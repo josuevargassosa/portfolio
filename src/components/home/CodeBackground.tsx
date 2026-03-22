@@ -26,7 +26,7 @@ export function CodeBackground() {
 
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
-    const starCount = 300;
+    const starCount = 600;
     const warpRadius = 180;
 
     function createStars() {
