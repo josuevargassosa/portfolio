@@ -83,7 +83,7 @@ export function ResumeFullPage() {
               key={edu.id}
               title={t(`educations.${edu.id}.degree`)}
               subtitle={t(`educations.${edu.id}.institution`)}
-              period={`${edu.period.start} - ${edu.period.end}`}
+              period=""
               description={t.has(`educations.${edu.id}.description`) ? t(`educations.${edu.id}.description`) : undefined}
             />
           ))}

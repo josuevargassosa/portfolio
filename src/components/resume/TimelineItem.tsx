@@ -21,9 +21,11 @@ export function TimelineItem({title, subtitle, period, description, tags}: Timel
     >
       <div className="absolute left-[-9px] top-0 w-4 h-4 rounded-full bg-foreground" />
 
-      <span className="text-xs font-bold uppercase tracking-widest text-muted-foreground">
-        {period}
-      </span>
+      {period && (
+        <span className="text-xs font-bold uppercase tracking-widest text-muted-foreground">
+          {period}
+        </span>
+      )}
       <h3 className="text-lg font-bold font-heading mt-1">{title}</h3>
       <p className="text-sm text-muted-foreground">{subtitle}</p>
 
