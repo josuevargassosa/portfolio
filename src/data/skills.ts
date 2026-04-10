@@ -55,7 +55,7 @@ export const skills: Skill[] = [
   { id: 'jest', name: 'Jest', logo: '/images/skills/jestLogo.svg', category: 'testing' },
 
   // Tools
-  { id: 'claudeai', name: 'Claude AI', logo: '/images/skills/claudeaiLogo.svg', category: 'tools' },
+  // { id: 'claudeai', name: 'Claude AI', logo: '/images/skills/claudeaiLogo.svg', category: 'tools' },
   { id: 'figma', name: 'Figma', logo: '/images/skills/figmaLogo.svg', category: 'tools' },
   { id: 'swagger', name: 'Swagger', logo: '/images/skills/swaggerLogo.svg', category: 'tools' },
 ];
