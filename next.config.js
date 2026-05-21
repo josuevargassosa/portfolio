@@ -11,6 +11,7 @@ const nextConfig = {
   compress: true,
   poweredByHeader: false,
   reactStrictMode: true,
+  devIndicators: false,
 };
 
 module.exports = withNextIntl(nextConfig);
