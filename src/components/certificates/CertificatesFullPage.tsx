@@ -35,12 +35,12 @@ export function CertificatesFullPage() {
           <ArrowLeft size={16} />
           {t('title')}
         </Link>
-        <h1 className="text-sm uppercase tracking-widest text-muted-foreground mb-2">
+        <p className="text-sm uppercase tracking-widest text-muted-foreground mb-2">
           {t('title')}
-        </h1>
-        <p className="text-4xl font-bold font-heading uppercase tracking-wider text-gradient">
-          {t('subtitle')}
         </p>
+        <h1 className="text-4xl font-bold font-heading uppercase tracking-wider text-gradient">
+          {t('subtitle')}
+        </h1>
       </motion.div>
 
       <motion.div

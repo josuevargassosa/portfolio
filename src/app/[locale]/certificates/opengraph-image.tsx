@@ -1,7 +1,7 @@
 import {OG_SIZE, OG_CONTENT_TYPE, renderOgImage} from '@/lib/og-image';
 
 export const runtime = 'edge';
-export const alt = 'Josue Vargas - Senior Software Engineer';
+export const alt = 'Certificates — Josue Vargas';
 export const size = OG_SIZE;
 export const contentType = OG_CONTENT_TYPE;
 
@@ -14,10 +14,10 @@ export default async function Image({
   const isEn = locale === 'en';
 
   return renderOgImage({
-    eyebrow: isEn ? 'Portfolio' : 'Portafolio',
-    title: 'Josue Vargas',
+    eyebrow: 'Josue Vargas',
+    title: isEn ? 'Certificates' : 'Certificados',
     subtitle: isEn
-      ? 'Senior Software Engineer · Angular · NestJS · .NET · React · Next.js · Flutter'
-      : 'Ingeniero de Software Senior · Angular · NestJS · .NET · React · Next.js · Flutter',
+      ? 'Professional certifications — Web, Mobile, Cloud, Databases'
+      : 'Certificaciones profesionales — Web, Móvil, Cloud, Bases de datos',
   });
 }

@@ -2,7 +2,7 @@ import {NextIntlClientProvider} from 'next-intl';
 import {getMessages} from 'next-intl/server';
 import {ThemeProvider} from 'next-themes';
 import {Inter, Poppins} from 'next/font/google';
-import type { Metadata } from 'next';
+import type {Metadata, Viewport} from 'next';
 import {JsonLd} from '@/components/seo/JsonLd';
 import {Analytics} from '@/components/shared/Analytics';
 import {WhatsAppButton} from '@/components/shared/WhatsAppButton';
@@ -22,6 +22,14 @@ const poppins = Poppins({
   display: 'swap',
 });
 
+export const viewport: Viewport = {
+  themeColor: [
+    {media: '(prefers-color-scheme: light)', color: '#ffffff'},
+    {media: '(prefers-color-scheme: dark)', color: '#000000'},
+  ],
+  colorScheme: 'dark light',
+};
+
 export const metadata: Metadata = {
   metadataBase: new URL('https://josuevargassosa.com'),
   icons: {
@@ -33,6 +41,8 @@ export const metadata: Metadata = {
     template: '%s | Josue Vargas'
   },
   description: 'Senior Software Engineer con +6 años de experiencia en Angular, NestJS, .NET, React y Flutter. Especializado en arquitectura limpia, CI/CD y productos digitales escalables.',
+  applicationName: 'Josue Vargas Portfolio',
+  category: 'technology',
   keywords: [
     'Senior Software Engineer',
     'Full Stack Developer',
@@ -51,8 +61,17 @@ export const metadata: Metadata = {
     'Ecuador',
     'Guayaquil',
   ],
-  authors: [{ name: 'Josue Vargas', url: 'https://josuevargassosa.com' }],
+  authors: [{name: 'Josue Vargas', url: 'https://josuevargassosa.com'}],
   creator: 'Josue Vargas',
+  publisher: 'Josue Vargas',
+  alternates: {
+    canonical: '/',
+    languages: {
+      'es-ES': '/es',
+      'en-US': '/en',
+      'x-default': '/es',
+    },
+  },
   openGraph: {
     type: 'website',
     locale: 'es_ES',
@@ -78,11 +97,16 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
 };
 
 export default async function LocaleLayout({
   children,
-  params
+  params,
 }: {
   children: React.ReactNode;
   params: Promise<{locale: string}>;
@@ -91,9 +115,13 @@ export default async function LocaleLayout({
   const messages = await getMessages();
 
   return (
-    <html lang={locale} suppressHydrationWarning className={`${inter.variable} ${poppins.variable}`}>
+    <html
+      lang={locale}
+      suppressHydrationWarning
+      className={`${inter.variable} ${poppins.variable}`}
+    >
       <head>
-        <JsonLd />
+        <JsonLd locale={locale} />
       </head>
       <body className="font-sans">
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
