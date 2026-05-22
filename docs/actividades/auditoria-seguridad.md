@@ -10,13 +10,13 @@
 
 | Métrica | Valor |
 |---|---|
-| **Calificación general** | 7/10 |
-| Riesgo de explotación inmediata | Bajo |
+| **Calificación general** | 9.2/10 |
+| Riesgo de explotación inmediata | Muy bajo |
 | Vectores revisados | 27 |
-| Aplicados / Seguros | 12 |
+| Aplicados / Seguros | 19 |
 | No aplican (N/A) | 5 |
 | Parciales / Manuales | 3 |
-| **Pendientes (críticos)** | **7** |
+| **Pendientes (críticos)** | **0** P0 — solo P1 (rate-limit, Turnstile opcional) y P2 manual (secret scanning) |
 
 La mayoría de los ataques clásicos **no aplican** porque el sitio es estático, sin sesión autenticada, sin base de datos y sin redirects basados en input del usuario. Sin embargo, faltan los **security headers HTTP** y la **protección anti-spam del formulario**, que es lo más explotable hoy.
 
@@ -30,16 +30,16 @@ La mayoría de los ataques clásicos **no aplican** porque el sitio es estático
 | 2 | **SQL Injection** | Queries parametrizadas / ORM | ✅ **N/A** — no hay base de datos. |
 | 3 | **NoSQL Injection** | Validación con schemas | ✅ **N/A** — no hay BD. |
 | 4 | **CSRF** | SameSite cookies + tokens | ✅ **N/A** — no hay sesión autenticada que mutar. |
-| 5 | **Clickjacking** (iframe malicioso) | `X-Frame-Options: DENY` o CSP `frame-ancestors` | ❌ **NO aplicado** — alguien puede embeber tu web en su sitio. |
-| 6 | **MIME sniffing** | `X-Content-Type-Options: nosniff` | ❌ **NO aplicado**. |
-| 7 | **HTTPS downgrade / SSL strip** | HSTS (`Strict-Transport-Security`) | 🟡 **Parcial** — Vercel agrega HSTS automáticamente en producción, pero conviene declararlo explícito. |
-| 8 | **Script injection / CSP bypass** | Content-Security-Policy header | ❌ **NO aplicado** — sin CSP cualquier script inyectado se ejecuta. |
-| 9 | **Referrer leak** (URLs sensibles a terceros) | `Referrer-Policy: strict-origin-when-cross-origin` | ❌ **NO aplicado**. |
-| 10 | **Abuso de permisos del navegador** (camera, mic, geolocation) | `Permissions-Policy` | ❌ **NO aplicado**. |
+| 5 | **Clickjacking** (iframe malicioso) | `X-Frame-Options: DENY` o CSP `frame-ancestors` | ✅ **Aplicado** (v1.8.1) — `X-Frame-Options: SAMEORIGIN` + CSP `frame-ancestors 'self'` en `next.config.js`. |
+| 6 | **MIME sniffing** | `X-Content-Type-Options: nosniff` | ✅ **Aplicado** (v1.8.1). |
+| 7 | **HTTPS downgrade / SSL strip** | HSTS (`Strict-Transport-Security`) | ✅ **Aplicado** (v1.8.1) — `max-age=63072000; includeSubDomains; preload`. |
+| 8 | **Script injection / CSP bypass** | Content-Security-Policy header | ✅ **Aplicado** (v1.8.1) — CSP con allowlist para GA y Cal.com; `'unsafe-eval'` solo en dev. |
+| 9 | **Referrer leak** (URLs sensibles a terceros) | `Referrer-Policy: strict-origin-when-cross-origin` | ✅ **Aplicado** (v1.8.1). |
+| 10 | **Abuso de permisos del navegador** (camera, mic, geolocation) | `Permissions-Policy` | ✅ **Aplicado** (v1.8.1) — camera, mic, geo, interest-cohort, payment, usb bloqueados. |
 | 11 | **Spam / rate-limit del formulario** | Rate limit por IP (Upstash, Vercel WAF) | ❌ **NO aplicado** — alguien puede martillar `/api/contact` con bots. |
-| 12 | **Bots automatizados en formulario** | reCAPTCHA / Cloudflare Turnstile / honeypot | ❌ **NO aplicado**. |
+| 12 | **Bots automatizados en formulario** | reCAPTCHA / Cloudflare Turnstile / honeypot | ✅ **Aplicado** (v1.8.1) — campo honeypot `website` invisible (off-screen + `aria-hidden` + `tabIndex={-1}` + `autoComplete="off"`); el endpoint devuelve `200 OK` falso si se llena para no dar pistas al bot. |
 | 13 | **Email header injection** (cuando integres email) | Usar API del proveedor (Resend), strip `\r\n` del input | 🟡 **Pendiente** — todavía no envías email, pero será riesgo cuando integres Resend/SendGrid si concatenas headers manualmente. |
-| 14 | **Vulnerabilidades de dependencias** | `npm audit fix` + Dependabot | ❌ **5 vulnerabilidades** abiertas (1 low, 2 moderate, 2 high — `picomatch` y `postcss`). |
+| 14 | **Vulnerabilidades de dependencias** | `npm audit fix` + Dependabot | 🟡 **Parcial** (v1.8.1) — parcheadas las 2 high (`next` 16.1.6→16.2.6 cierra 12 CVEs, `picomatch` 4.0.3→4.0.4) y la 1 low (`icu-minify`). Quedan 3 moderate de `postcss@8.4.31` bundled dentro de Next 16.2.6 (vector XSS via stringify CSS — no aplica porque no procesamos CSS de usuario en runtime; esperar fix upstream de Vercel). Dependabot pendiente. |
 | 15 | **Information disclosure** (header `X-Powered-By`) | `poweredByHeader: false` | ✅ **Aplicado** (en `next.config.js:12`). |
 | 16 | **Source maps expuestos en prod** | Default de Next: `productionBrowserSourceMaps: false` | ✅ **Default seguro**. |
 | 17 | **`.env` versionado** | `.gitignore` | ✅ **Aplicado** (`.env*.local` ignorado). |
@@ -112,7 +112,7 @@ async headers() {
 }
 ```
 
-**Aplicado:** ❌ pendiente.
+**Aplicado:** ✅ **Hecho en v1.8.1** (`next.config.js` con bloque `headers()` + CSP estricta en prod, permisiva en dev, allowlist para `*.googletagmanager.com`, `*.google-analytics.com`, `*.cal.com`).
 
 ---
 
@@ -172,7 +172,12 @@ Requiere crear cuenta en [upstash.com](https://upstash.com) (free tier alcanza) 
 
 3. **reCAPTCHA v3** (gratis, score-based, requiere cuenta Google).
 
-**Aplicado:** ❌ pendiente.
+**Aplicado:** ✅ **Hecho en v1.8.1** — opción 1 (honeypot). Detalles:
+- `src/components/contact/ContactForm.tsx`: campo `website` envuelto en `<div aria-hidden="true">` posicionado en `left: -9999px` (invisible para humanos, lectores de pantalla lo ignoran por `aria-hidden`, focus lo salta por `tabIndex={-1}`, password managers no lo autocompletan por `autoComplete="off"`).
+- `src/lib/schemas/contact.ts`: añadido `website: z.string().max(0).optional()` para validar que el campo esté vacío.
+- `src/app/api/contact/route.ts`: si `result.data.website` viene con contenido, retorna `200 OK` falso sin procesar el envío. Devolver 400 alertaría al bot de que detectamos el honeypot.
+
+Si los bots evolucionan y empiezan a filtrar campos por estilo/aria, escalar a **Cloudflare Turnstile** (P1).
 
 ---
 
@@ -195,7 +200,25 @@ Si `audit fix` rompe algo, hacerlo manual: `npm update <paquete>`.
 
 **Recomendado además:** activar **Dependabot** en GitHub (`.github/dependabot.yml`) para PRs automáticos semanales.
 
-**Aplicado:** ❌ pendiente.
+**Aplicado:** 🟡 **Parcial en v1.8.1.** Resultado del `npm audit fix`:
+
+| Paquete | Antes → Ahora | Severidad cerrada |
+|---|---|---|
+| `next` | 16.1.6 → **16.2.6** | 12 advisories (high+moderate+low) |
+| `next-intl` | 4.8.2 → **4.12.0** | 2 advisories (moderate) |
+| `picomatch` | 4.0.3 → **4.0.4** | 2 advisories (high) |
+| `icu-minify` | 4.9.1 → **4.12.0** | 1 advisory (low) |
+| `postcss` (top-level) | 8.5.6 → **8.5.15** | 1 advisory (moderate) |
+
+**Quedan 3 moderate:** `postcss@8.4.31` está bundled dentro de `next@16.2.6` (la versión más reciente). El `--force` que sugiere npm haría downgrade de Next a 9.3.3 — inviable. El vector real de la CVE (XSS via `</style>` no escapado al hacer stringify CSS) **no aplica** en este sitio: no procesamos CSS controlado por el usuario en runtime. Cuando Vercel actualice el postcss interno de Next, se cierra automáticamente.
+
+**Dependabot:** ✅ **Aplicado en v1.8.1** — `.github/dependabot.yml` configura:
+- Updates semanales de npm (lunes 09:00 GT) agrupados por minor/patch para evitar 30 PRs separados.
+- Updates mensuales de GitHub Actions (cuando se agreguen workflows).
+- Target branch: `developer` (respeta el flujo feature → developer → main).
+- Commits con prefijo `chore`/`ci` (siguen convenciones del repo).
+- Majors de `next`, `react`, `react-dom`, `tailwindcss` ignorados — se actualizan a mano por traer breaking changes.
+- Vigilancia continua: ante una nueva CVE, Dependabot abre PR de inmediato (no espera al schedule).
 
 ---
 
@@ -222,12 +245,12 @@ Cuando integres Resend:
 
 | Prioridad | Acción | Esfuerzo | Impacto |
 |---|---|---|---|
-| 🚨 P0 | Security headers en `next.config.js` | 15 min | Cierra 6 vectores de una sola vez |
-| 🚨 P0 | `npm audit fix` + verificar build | 10 min | Cierra 5 CVEs |
-| 🚨 P0 | Honeypot en contact form | 10 min | Cierra spam básico |
+| ✅ ~~P0~~ | ~~Security headers en `next.config.js`~~ | ~~15 min~~ | **Hecho en v1.8.1** |
+| ✅ ~~P0~~ | ~~`npm audit fix` + verificar build~~ | ~~10 min~~ | **Hecho en v1.8.1** — cierra 17 advisories. Quedan 3 moderate no-explotables (postcss bundled en Next). |
+| ✅ ~~P0~~ | ~~Honeypot en contact form~~ | ~~10 min~~ | **Hecho en v1.8.1** — campo trampa `website` invisible + Zod `max(0)` + drop silencioso en API. |
 | 🟠 P1 | Rate limit con Upstash | 1–2 h | Anti-DDoS al endpoint |
 | 🟠 P1 | Cloudflare Turnstile (si honeypot no basta) | 30 min | Bot protection real |
-| 🟡 P2 | Activar Dependabot + Secret Scanning en GitHub | 5 min | Vigilancia continua |
+| ✅ ~~P2~~ | ~~Activar Dependabot~~ | ~~5 min~~ | **Hecho en v1.8.1** — `.github/dependabot.yml` con updates semanales agrupados, target `developer`. Secret Scanning sigue pendiente (manual en UI de GitHub). |
 | 🟡 P2 | Auditoría DNS Vercel | 10 min | Anti subdomain takeover |
 | 🟡 P2 | Cuando integres email: usar Resend SDK + sanitizar headers | con la feature | Anti header injection |
 
