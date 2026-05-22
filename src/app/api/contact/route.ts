@@ -13,6 +13,12 @@ export async function POST(request: Request) {
       );
     }
 
+    // Honeypot tripped → pretend success so the bot moves on,
+    // but never process the submission.
+    if (result.data.website) {
+      return NextResponse.json({success: true});
+    }
+
     // TODO: Integrar servicio de email (Resend, SendGrid, etc.)
     // Por ahora solo valida y retorna success.
     // Ejemplo con Resend:
