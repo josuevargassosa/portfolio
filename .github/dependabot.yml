@@ -1,0 +1,61 @@
+# Dependabot configuration
+# Docs: https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file
+
+version: 2
+updates:
+  # Mantiene las dependencias de npm al día.
+  # Vigila también las CVE: cuando hay una nueva, Dependabot abre PR de inmediato
+  # (independiente del schedule).
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+      timezone: "America/Guatemala"
+    open-pull-requests-limit: 5
+    target-branch: "developer"
+    labels:
+      - "dependencies"
+      - "automated"
+    commit-message:
+      prefix: "chore"
+      prefix-development: "chore"
+      include: "scope"
+    # Agrupa updates para reducir ruido: un solo PR semanal por categoría.
+    groups:
+      production-minor-patch:
+        dependency-type: "production"
+        update-types:
+          - "minor"
+          - "patch"
+      development-minor-patch:
+        dependency-type: "development"
+        update-types:
+          - "minor"
+          - "patch"
+    # Los majors siguen como PRs individuales (porque suelen traer breaking changes
+    # y conviene revisarlos uno por uno).
+    ignore:
+      # Ignorar majors de paquetes ancla — se actualizan a mano cuando corresponda.
+      - dependency-name: "next"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "react"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "react-dom"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "tailwindcss"
+        update-types: ["version-update:semver-major"]
+
+  # Mantiene actualizadas las GitHub Actions cuando se agreguen workflows.
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "monthly"
+    open-pull-requests-limit: 3
+    target-branch: "developer"
+    labels:
+      - "ci"
+      - "automated"
+    commit-message:
+      prefix: "ci"
