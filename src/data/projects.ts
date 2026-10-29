@@ -35,9 +35,10 @@ export const projects: Project[] = [
     featured: false,
   },
   {
-    id: 'plataforma-educativa',
-    thumbnail: '/images/projects/placeholder.webp',
-    techStack: ['Next.js', 'Prisma', 'PostgreSQL'],
+    id: 'plataforma-fundacion',
+    thumbnail: '/images/projects/plataforma-fundacion.jpg',
+    techStack: ['Next.js', 'TypeScript', 'Prisma', 'PostgreSQL', 'Tailwind CSS'],
+    liveUrl: 'https://flom.org.ec/',
     featured: false,
   },
   {
