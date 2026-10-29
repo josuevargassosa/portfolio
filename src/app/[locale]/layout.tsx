@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     default: 'Josue Vargas | Senior Software Engineer',
     template: '%s | Josue Vargas'
   },
-  description: 'Senior Software Engineer con +6 años de experiencia en Angular, NestJS, .NET, React y Flutter. Especializado en arquitectura limpia, CI/CD y productos digitales escalables.',
+  description: 'Senior Software Engineer con +6 años de experiencia. Liderazgo técnico y arquitectura de software en Fintech y Pagos con Angular, NestJS, .NET y Azure.',
   applicationName: 'Josue Vargas Portfolio',
   category: 'technology',
   keywords: [
@@ -56,6 +56,9 @@ export const metadata: Metadata = {
     'Node.js',
     'SQL Server',
     'Azure',
+    'Software Architecture',
+    'Fintech',
+    'Payments',
     'Clean Architecture',
     'Josue Vargas',
     'Ecuador',
@@ -78,13 +81,13 @@ export const metadata: Metadata = {
     alternateLocale: 'en_US',
     url: 'https://josuevargassosa.com',
     title: 'Josue Vargas | Senior Software Engineer',
-    description: 'Senior Software Engineer · Angular, NestJS, .NET, React, Flutter · +6 años construyendo productos digitales escalables.',
+    description: 'Senior Software Engineer · Liderazgo técnico y arquitectura en Fintech y Pagos · Angular, NestJS, .NET, Azure.',
     siteName: 'Josue Vargas',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Josue Vargas | Senior Software Engineer',
-    description: 'Senior Software Engineer · Angular, NestJS, .NET, React, Flutter · +6 años construyendo productos digitales escalables.',
+    description: 'Senior Software Engineer · Liderazgo técnico y arquitectura en Fintech y Pagos · Angular, NestJS, .NET, Azure.',
   },
   robots: {
     index: true,

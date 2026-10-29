@@ -13,26 +13,26 @@ export interface Education {
 export const experiences: Experience[] = [
   {
     id: 'exp-1',
-    period: { start: '2024-04', end: null },
-    techStack: ['Angular', 'NestJS', '.NET 7', 'Docker', 'Azure DevOps', 'Azure Container Apps'],
+    period: { start: '2024-05', end: null },
+    techStack: ['Angular', 'NestJS', '.NET 7', '.NET 8', 'Next.js', 'Microsoft Entra ID', 'Playwright', 'Docker', 'Azure DevOps', 'Azure Container Apps'],
     location: 'Guayaquil, Ecuador',
   },
   {
     id: 'exp-2',
-    period: { start: '2022-07', end: '2024-04' },
-    techStack: ['Angular', '.NET 6', 'SQL Server', 'Azure DevOps', 'CI/CD'],
+    period: { start: '2022-07', end: '2024-05' },
+    techStack: ['Angular', '.NET 6', 'NestJS', 'SQL Server', 'Azure DevOps', 'CI/CD'],
     location: 'Guayaquil, Ecuador',
   },
   {
     id: 'exp-3',
-    period: { start: '2024-06', end: '2024-09' },
+    period: { start: '2024-06', end: '2024-08' },
     techStack: ['Ionic', 'Angular', 'TypeScript', 'REST APIs'],
     location: 'Guayaquil, Ecuador',
   },
   {
     id: 'exp-4',
     period: { start: '2021-01', end: '2022-07' },
-    techStack: ['Angular', '.NET', 'SQL Server', 'Ionic', 'Swagger', 'CI/CD'],
+    techStack: ['Angular', '.NET', 'SQL Server', 'Flutter', 'Swagger', 'CI/CD'],
     location: 'Guayaquil, Ecuador',
   },
   {
@@ -40,6 +40,12 @@ export const experiences: Experience[] = [
     period: { start: '2020-10', end: '2022-07' },
     techStack: ['Angular', 'Flutter', 'Figma', 'Azure DevOps', 'TypeScript'],
     location: 'Guayaquil, Ecuador',
+  },
+  {
+    id: 'exp-6',
+    period: { start: '2019-12', end: null },
+    techStack: ['React', 'NestJS', 'Next.js', 'Prisma', 'PostgreSQL'],
+    location: 'Ecuador',
   },
 ];
 

@@ -9,9 +9,9 @@
   },
   "hero": {
     "name": "Josue Vargas",
-    "title": "Ingeniero de Software Senior",
-    "subtitle": "Ayudo a empresas a construir y escalar productos digitales sólidos.",
-    "description": "Más de 6 años liderando desarrollo con **Angular**, **NestJS** y **.NET** bajo buenas prácticas, **arquitectura limpia** y **CI/CD**. Fundador de **MenuDigital.ec**.",
+    "title": "Senior Software Engineer",
+    "subtitle": "Liderazgo técnico y arquitectura de software en Fintech y Pagos.",
+    "description": "Más de 6 años construyendo plataformas web y móviles. Referente técnico en **Red de Servicios Facilito (Prosegur)**, con +50.000 puntos de pago en Ecuador: defino **arquitectura**, reviso soluciones y llevo proyectos a producción con **Angular**, **NestJS**, **.NET** y **Azure**.",
     "cta": {
       "projects": "Ver proyectos",
       "resume": "Currículum",
@@ -43,6 +43,22 @@
       "menudigital": {
         "title": "MenuDigital.ec",
         "description": "SaaS de menú digital para restaurantes en Ecuador. Monorepo con landing, panel admin (dashboard, analytics, multi-sucursal, roles) y menús públicos con 3 templates. Pedidos por WhatsApp sin comisiones."
+      },
+      "ubicanos": {
+        "title": "Ubícanos – Facilito",
+        "description": "Mapa público de puntos de pago de Red de Servicios Facilito, la red de recaudación con +50.000 puntos en Ecuador. Diseñado, desarrollado y llevado a producción."
+      },
+      "canal-pagos": {
+        "title": "Canal de Pagos – Facilito",
+        "description": "Portal de \"dónde y cómo pagar\" de Red de Servicios Facilito, con portal de desarrolladores para integradores. Diseñado, desarrollado y llevado a producción."
+      },
+      "directorio-kioscos": {
+        "title": "Directorio para Kioscos Táctiles",
+        "description": "Directorio interactivo para los kioscos táctiles de un centro comercial, desarrollado de punta a punta."
+      },
+      "plataforma-educativa": {
+        "title": "Plataforma Educativa",
+        "description": "Plataforma educativa a medida para una fundación, desarrollada de punta a punta."
       },
       "invitacion-boda": {
         "title": "Invitación Digital de Boda",
@@ -78,27 +94,32 @@
       "exp-1": {
         "company": "Prosegur · Facilito S.A.",
         "position": "Senior Software Engineer",
-        "description": "Lideré la migración de sistemas legados (.NET Framework) a Angular + .NET Core 7 aplicando ingeniería inversa sobre binarios compilados. Optimicé reportes críticos reduciendo tiempos de carga de 10 min a 1 min (-90%). Implementé pipeline CI/CD con Azure DevOps, Docker y Azure Container Apps. Diseñé autenticación federada con Active Directory y Microsoft Entra ID."
+        "description": "Defino arquitectura y stack de proyectos nuevos en un ecosistema de +30 repositorios, reviso soluciones del equipo y doy mentoría técnica. Lidero el Administrador Departamental (Angular + NestJS), el back-office que reemplaza sistemas legados sin código fuente. Llevé a producción Ubícanos y Canal de Pagos, diseñé la API de integración con el POS Datafast (operativa en 12 agencias) y construí el servicio de identidad centralizada (.NET 7, Microsoft Entra ID + LDAP). Automaticé la conciliación bancaria con un bot RPA (Node.js, Playwright) e implementé CI/CD con Azure DevOps, Docker y Azure Container Apps, migrando servicios on-premise a la nube."
       },
       "exp-2": {
         "company": "Prosegur · Facilito S.A.",
         "position": "Software Engineer",
-        "description": "Diseñé el sistema de Onboarding de comercios, reduciendo el tiempo de registro de 2 horas a 15 minutos (-87%). Lideré la migración de Facilito Web a Angular + .NET 6, logrando un sistema 30% más rápido. Implementé pipelines CI/CD reduciendo despliegues de 1 hora a 10 minutos. Integré servicios CISLATAM (Western Union)."
+        "description": "Desarrollo full-stack de Onboarding, Portal de Pagos y Facilito Web (Angular, .NET, NestJS, SQL Server). Reduje el registro de nuevos comercios de 2 horas a 15 minutos. Participé en la migración de Facilito Web a Angular + .NET, logrando un sistema 30% más rápido, y optimicé reportes críticos de 10 min a 1 min. Implementé pipelines CI/CD reduciendo despliegues de 1 hora a 10 minutos e integré el pago de remesas Western Union (CISLATAM)."
       },
       "exp-3": {
         "company": "AITEC Instituto Superior Universitario",
         "position": "Docente de Desarrollo Móvil",
-        "description": "Impartí el curso de desarrollo móvil con Ionic y Angular a nivel tecnológico superior, con enfoque práctico basado en proyectos reales. Guié la construcción de aplicaciones CRUD con consumo de APIs REST y realicé revisiones de código personalizadas."
+        "description": "Impartí clases de desarrollo móvil con Ionic y Angular, con un enfoque práctico basado en proyectos y revisiones de código personalizadas."
       },
       "exp-4": {
         "company": "Fondo de Cesantía CTE",
         "position": "Software Developer",
-        "description": "Desarrollé el sistema de solicitudes de crédito y adhesión de socios. Construí la app móvil institucional reduciendo la adhesión de socios de 3-4 horas a 20 minutos. Implementé el módulo de aprobación de créditos web y móvil, reduciendo el trámite de 6 horas a 1 hora."
+        "description": "Desarrollé el sistema interno de solicitudes de crédito y adhesión de socios. Colaboré en la app móvil institucional (Flutter), reduciendo la adhesión de socios de 3-4 horas a 20 minutos. Desarrollé la aprobación interna web y apoyé la solicitud de créditos móvil, reduciendo el trámite de 6 horas a 1 hora. Creé pipelines CI/CD y documenté APIs con Swagger."
       },
       "exp-5": {
         "company": "Binasystem",
         "position": "Front-End Developer",
         "description": "Participé en el desarrollo de la app móvil TendaGo en Flutter y del administrador web Service Broker. Diseñé prototipos de interfaces móviles en Figma para presentaciones a clientes."
+      },
+      "exp-6": {
+        "company": "Desarrollador Independiente",
+        "position": "Desarrollo de software a medida",
+        "description": "Sistemas y apps para negocios, de punta a punta: directorio interactivo para kioscos táctiles de un centro comercial (React + NestJS) y plataforma educativa para una fundación (Next.js + Prisma)."
       }
     },
     "educations": {
@@ -139,7 +160,7 @@
     }
   },
   "footer": {
-    "tagline": "Ingeniero Full Stack Senior construyendo productos digitales sólidos.",
+    "tagline": "Senior Software Engineer construyendo plataformas de pagos y productos digitales sólidos.",
     "available": "Disponible para proyectos",
     "rights": "Todos los derechos reservados."
   },

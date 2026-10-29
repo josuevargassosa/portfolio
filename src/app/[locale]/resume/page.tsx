@@ -17,8 +17,8 @@ export async function generateMetadata({
   return {
     title: isEn ? 'Resume' : 'Currículum',
     description: isEn
-      ? 'Resume of Josue Vargas — Senior Software Engineer with 6+ years building production systems in Angular, NestJS, .NET, React, Next.js and Flutter. Clean architecture, CI/CD, Azure.'
-      : 'Currículum de Josue Vargas — Senior Software Engineer con +6 años construyendo sistemas en Angular, NestJS, .NET, React, Next.js y Flutter. Arquitectura limpia, CI/CD, Azure.',
+      ? 'Resume of Josue Vargas — Senior Software Engineer with 6+ years building production systems in Angular, NestJS, .NET, Next.js and Azure. Technical leadership, software architecture and payment integrations.'
+      : 'Currículum de Josue Vargas — Senior Software Engineer con +6 años construyendo sistemas en Angular, NestJS, .NET, Next.js y Azure. Liderazgo técnico, arquitectura de software e integraciones de pagos.',
     alternates: {
       canonical: `/${locale}/resume`,
       languages: {
