@@ -56,9 +56,9 @@
         "title": "Directorio para Kioscos Táctiles",
         "description": "Directorio interactivo para los kioscos táctiles de un centro comercial, desarrollado de punta a punta."
       },
-      "plataforma-educativa": {
-        "title": "Plataforma Educativa",
-        "description": "Plataforma educativa a medida para una fundación, desarrollada de punta a punta."
+      "plataforma-fundacion": {
+        "title": "Plataforma de Gestión para Fundación",
+        "description": "Plataforma integral para una fundación que otorga becas: sitio web con CMS, convocatorias y postulaciones en línea con evaluación socioeconómica, gestión de becarios, actividades y voluntariado, portal para estudiantes y representantes, donaciones en línea (Payphone y Datafast), campañas por WhatsApp, roles, auditoría y reportes de KPIs."
       },
       "invitacion-boda": {
         "title": "Invitación Digital de Boda",
@@ -119,7 +119,7 @@
       "exp-6": {
         "company": "Desarrollador Independiente",
         "position": "Desarrollo de software a medida",
-        "description": "Sistemas y apps para negocios, de punta a punta: directorio interactivo para kioscos táctiles de un centro comercial (React + NestJS) y plataforma educativa para una fundación (Next.js + Prisma)."
+        "description": "Sistemas y apps para negocios, de punta a punta: directorio interactivo para kioscos táctiles de un centro comercial (React + NestJS) y plataforma de gestión de becas para una fundación (Next.js + Prisma)."
       }
     },
     "educations": {
