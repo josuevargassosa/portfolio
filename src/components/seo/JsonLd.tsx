@@ -16,8 +16,8 @@ export function JsonLd({locale = 'es'}: JsonLdProps) {
     familyName: 'Vargas Sosa',
     jobTitle: isEn ? 'Senior Software Engineer' : 'Ingeniero de Software Senior',
     description: isEn
-      ? 'Senior Software Engineer with 6+ years of experience leading development in Angular, NestJS, .NET and clean architecture.'
-      : 'Senior Software Engineer con más de 6 años de experiencia liderando desarrollo con Angular, NestJS, .NET y arquitectura limpia.',
+      ? 'Senior Software Engineer with 6+ years of experience. Technical lead and software architect in Fintech and Payments, working with Angular, NestJS, .NET and Azure.'
+      : 'Senior Software Engineer con más de 6 años de experiencia. Liderazgo técnico y arquitectura de software en Fintech y Pagos con Angular, NestJS, .NET y Azure.',
     url: SITE_URL,
     image: `${SITE_URL}/images/josueLogo.png`,
     email: 'mailto:josuevargass@hotmail.com',
@@ -40,7 +40,8 @@ export function JsonLd({locale = 'es'}: JsonLdProps) {
     knowsAbout: [
       'Angular', 'NestJS', '.NET', 'C#', 'React', 'Next.js', 'TypeScript',
       'Node.js', 'Flutter', 'Dart', 'SQL Server', 'PostgreSQL', 'MySQL',
-      'Azure', 'Azure DevOps', 'Docker', 'Git', 'Clean Architecture',
+      'Azure', 'Azure DevOps', 'Azure Container Apps', 'Microsoft Entra ID', 'Docker', 'Git',
+      'Software Architecture', 'Payment Integrations', 'RPA', 'Clean Architecture',
       'CI/CD', 'REST APIs', 'Microservices', 'Web Development', 'Mobile Development',
     ],
     hasOccupation: {

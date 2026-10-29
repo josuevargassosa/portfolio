@@ -10,8 +10,8 @@
   "hero": {
     "name": "Josue Vargas",
     "title": "Senior Software Engineer",
-    "subtitle": "I help companies build and scale solid digital products.",
-    "description": "Over 6 years leading development with **Angular**, **NestJS** and **.NET** following best practices, **clean architecture** and **CI/CD**. Founder of **MenuDigital.ec**.",
+    "subtitle": "Technical leadership and software architecture in Fintech and Payments.",
+    "description": "6+ years building web and mobile platforms. Technical reference at **Red de Servicios Facilito (Prosegur)**, with 50,000+ payment points in Ecuador: I define **architecture**, review solutions and ship projects to production with **Angular**, **NestJS**, **.NET** and **Azure**.",
     "cta": {
       "projects": "View projects",
       "resume": "Resume",
@@ -43,6 +43,22 @@
       "menudigital": {
         "title": "MenuDigital.ec",
         "description": "Digital menu SaaS for restaurants in Ecuador. Monorepo with landing page, admin panel (dashboard, analytics, multi-location, roles) and public menus with 3 templates. WhatsApp orders with no commissions."
+      },
+      "ubicanos": {
+        "title": "Ubícanos – Facilito",
+        "description": "Public payment-point map for Red de Servicios Facilito, Ecuador's payment-collection network with 50,000+ locations. Designed, built and shipped to production."
+      },
+      "canal-pagos": {
+        "title": "Canal de Pagos – Facilito",
+        "description": "Red de Servicios Facilito's \"where and how to pay\" portal, with a developer portal for integrators. Designed, built and shipped to production."
+      },
+      "directorio-kioscos": {
+        "title": "Touch-Screen Kiosk Directory",
+        "description": "Interactive directory for a shopping mall's touch-screen kiosks, built end to end."
+      },
+      "plataforma-educativa": {
+        "title": "Educational Platform",
+        "description": "Custom educational platform for a foundation, built end to end."
       },
       "invitacion-boda": {
         "title": "Digital Wedding Invitation",
@@ -78,27 +94,32 @@
       "exp-1": {
         "company": "Prosegur · Facilito S.A.",
         "position": "Senior Software Engineer",
-        "description": "Led migration of legacy systems (.NET Framework) to Angular + .NET Core 7 using reverse engineering on compiled binaries. Optimized critical reports reducing load times from 10 min to 1 min (-90%). Implemented CI/CD pipeline with Azure DevOps, Docker and Azure Container Apps. Designed federated authentication with Active Directory and Microsoft Entra ID."
+        "description": "Define architecture and stack for new projects across 30+ repositories, review team solutions and mentor developers. Lead the Departmental Admin platform (Angular + NestJS), the back-office replacing legacy systems with no source code. Shipped Ubícanos and Canal de Pagos to production, designed the Datafast POS integration API (live in 12 branches) and built a centralized identity service (.NET 7, Microsoft Entra ID + LDAP). Automated bank reconciliation with an RPA bot (Node.js, Playwright) and implemented CI/CD with Azure DevOps, Docker and Azure Container Apps, migrating on-premise services to the cloud."
       },
       "exp-2": {
         "company": "Prosegur · Facilito S.A.",
         "position": "Software Engineer",
-        "description": "Designed the merchant Onboarding system, reducing registration time from 2 hours to 15 minutes (-87%). Led migration of Facilito Web to Angular + .NET 6, achieving a 30% faster system. Implemented CI/CD pipelines reducing deployments from 1 hour to 10 minutes. Integrated CISLATAM services (Western Union)."
+        "description": "Full stack development of Onboarding, Payments Portal and Facilito Web (Angular, .NET, NestJS, SQL Server). Cut merchant onboarding from 2 hours to 15 minutes. Contributed to migrating Facilito Web to Angular + .NET, making it 30% faster, and optimized critical reports from 10 min to 1 min. Implemented CI/CD pipelines reducing deployments from 1 hour to 10 minutes and integrated Western Union remittance payouts (CISLATAM)."
       },
       "exp-3": {
         "company": "AITEC Instituto Superior Universitario",
         "position": "Mobile Development Instructor",
-        "description": "Taught mobile development course with Ionic and Angular at higher education level, with hands-on approach based on real projects. Guided the construction of CRUD applications consuming REST APIs and performed personalized code reviews."
+        "description": "Taught mobile development with Ionic and Angular, with a hands-on, project-based approach and personalized code reviews."
       },
       "exp-4": {
         "company": "Fondo de Cesantía CTE",
         "position": "Software Developer",
-        "description": "Developed the credit application and member enrollment system. Built the institutional mobile app reducing member enrollment from 3-4 hours to 20 minutes. Implemented the web and mobile credit approval module, reducing processing from 6 hours to 1 hour."
+        "description": "Developed the internal credit application and member enrollment system. Contributed to the institutional mobile app (Flutter), reducing member enrollment from 3-4 hours to 20 minutes. Built the internal web approval flow and supported mobile credit requests, cutting processing from 6 hours to 1 hour. Created CI/CD pipelines and documented APIs with Swagger."
       },
       "exp-5": {
         "company": "Binasystem",
         "position": "Front-End Developer",
         "description": "Participated in developing the TendaGo mobile app in Flutter and the Service Broker web admin. Designed mobile interface prototypes in Figma for client presentations."
+      },
+      "exp-6": {
+        "company": "Independent Developer",
+        "position": "Custom Software Development",
+        "description": "End-to-end systems and apps for businesses: an interactive directory for a shopping mall's touch-screen kiosks (React + NestJS) and an educational platform for a foundation (Next.js + Prisma)."
       }
     },
     "educations": {
@@ -139,7 +160,7 @@
     }
   },
   "footer": {
-    "tagline": "Senior Full Stack Engineer building solid digital products.",
+    "tagline": "Senior Software Engineer building payment platforms and solid digital products.",
     "available": "Available for projects",
     "rights": "All rights reserved."
   },
