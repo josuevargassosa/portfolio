@@ -56,9 +56,9 @@
         "title": "Touch-Screen Kiosk Directory",
         "description": "Interactive directory for a shopping mall's touch-screen kiosks, built end to end."
       },
-      "plataforma-educativa": {
-        "title": "Educational Platform",
-        "description": "Custom educational platform for a foundation, built end to end."
+      "plataforma-fundacion": {
+        "title": "Foundation Management Platform",
+        "description": "End-to-end platform for a scholarship foundation: CMS-driven website, online scholarship calls and applications with socioeconomic assessment, scholar management, activities and volunteering, a portal for students and guardians, online donations (Payphone and Datafast), WhatsApp campaigns, roles, audit logs and KPI reports."
       },
       "invitacion-boda": {
         "title": "Digital Wedding Invitation",
@@ -119,7 +119,7 @@
       "exp-6": {
         "company": "Independent Developer",
         "position": "Custom Software Development",
-        "description": "End-to-end systems and apps for businesses: an interactive directory for a shopping mall's touch-screen kiosks (React + NestJS) and an educational platform for a foundation (Next.js + Prisma)."
+        "description": "End-to-end systems and apps for businesses: an interactive directory for a shopping mall's touch-screen kiosks (React + NestJS) and a scholarship management platform for a foundation (Next.js + Prisma)."
       }
     },
     "educations": {
