@@ -15,6 +15,32 @@ export const projects: Project[] = [
     featured: true,
   },
   {
+    id: 'ubicanos',
+    thumbnail: '/images/projects/ubicanos.jpg',
+    techStack: ['Next.js', '.NET 8', 'Google Maps', 'Azure'],
+    liveUrl: 'https://ubicanos.facilito.com.ec/',
+    featured: true,
+  },
+  {
+    id: 'canal-pagos',
+    thumbnail: '/images/projects/canal-pagos.jpg',
+    techStack: ['Next.js', 'Azure App Service', 'TypeScript'],
+    liveUrl: 'https://app-facilito-canales.azurewebsites.net/',
+    featured: true,
+  },
+  {
+    id: 'directorio-kioscos',
+    thumbnail: '/images/projects/placeholder.webp',
+    techStack: ['React', 'NestJS', 'TypeScript'],
+    featured: false,
+  },
+  {
+    id: 'plataforma-educativa',
+    thumbnail: '/images/projects/placeholder.webp',
+    techStack: ['Next.js', 'Prisma', 'PostgreSQL'],
+    featured: false,
+  },
+  {
     id: 'invitacion-boda',
     thumbnail: '/images/projects/invitacion-boda.jpg',
     techStack: ['Next.js', 'React', 'Tailwind CSS', 'TypeScript', 'Vercel'],
